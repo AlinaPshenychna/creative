@@ -21,7 +21,7 @@ body {
   position: absolute;
   top: 5%;
   left: 50%;
-  z-index: 2;
+  z-index: 7;
   transform: translateX(-50%);
   animation: logos 2s ease-in-out 1, pulseCta 2s ease-in-out infinite 3s;
 }
