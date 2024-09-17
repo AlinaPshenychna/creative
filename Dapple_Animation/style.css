@@ -61,18 +61,18 @@ body {
   align-items: center;
   /* border: 1px solid red; */
 }
-.text-container img{
- height: 27%;
- object-fit: contain;
+.text-container img {
+  height: 27%;
+  object-fit: contain;
 }
 
 .tissue-container {
   position: relative;
   display: flex;
   justify-content: center;
-height: 45%;
-width: 100%;
-/* border: 1px solid red; */
+  height: 45%;
+  width: 100%;
+  /* border: 1px solid red; */
 }
 .tissue {
   width: 70%;
@@ -84,7 +84,7 @@ width: 100%;
     transform: scale(1);
   }
   50% {
-    transform:  scale(1.1);
+    transform: scale(1.1);
   }
   100% {
     transform: scale(1);
@@ -94,11 +94,11 @@ width: 100%;
 .cta-container {
   position: relative;
   height: 15%;
-width: 100%;
-/* border: 1px solid red; */
-display: flex;
-justify-content: center;
-align-items: center;
+  width: 100%;
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   animation: pulseCta 2s ease-in-out infinite 3s;
 }
 .cta {
