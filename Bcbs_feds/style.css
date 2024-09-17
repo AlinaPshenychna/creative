@@ -1,0 +1,214 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  
+}
+body {
+  width: 100%;
+  height: 100%;
+}
+.gallery {
+  width: 400vw;
+  /* размер должен быть одинаковым тут и в джс строка 9 */
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  transition: transform .5s ease;
+}
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(27, 51, 85);
+  flex-shrink: 0;
+}
+
+/* first slide */
+.text-container {
+  width: 100%;
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid red;
+}
+.text-container img {
+  width: 80%;
+}
+.picture-container-first {
+  position: relative;
+  width: 100%;
+  height: 45%;
+  border: 1px solid red;
+}
+.picture-container-first img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.swipe-container {
+  position: relative;
+  width: 100%;
+  height: 8%;
+  border: 1px solid red;
+}
+.swipe-container img {
+  /* position: absolute;
+  top: 0; */
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.left, .right {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  border: 1px solid green;
+}
+.left {
+  left: 0;
+}
+.right {
+  right: 0;
+}
+
+.logo-container-first {
+  width: 100%;
+  height: 17%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid red;
+}
+.logo-container-first img {
+  width: 55%;
+}
+
+/* second slide */
+
+.text-container-slide {
+  width: 100%;
+  height: 21%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid red;
+}
+.text-container-slide img {
+  width: 80%;
+}
+.picture-container {
+  position: relative;
+  width: 100%;
+  height: 33.5%;
+  border: 1px solid red;
+}
+.picture-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.text-body-container{
+  width: 100%;
+  height: 20.5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid red;
+}
+.text-body-container img{
+width: 80%;
+}
+.learn-more-container{
+  width: 100%;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid red;
+}
+.learn-more-container img{
+  width: 45%;
+}
+.logo-container {
+  width: 100%;
+  height: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid red;
+}
+.logo-container img {
+  width: 55%;
+}
+
+/* end slide */
+.logo-top {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid red;
+}
+.logo-top img {
+  width: 25%;
+}
+.text-container-end {
+  width: 100%;
+  height: 25%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid red;
+}
+.text-container-end img {
+  width: 80%;
+}
+.bottom-bg {
+  background-color: rgb(39, 59, 96);
+}
+.text-body-container-end {
+  width: 100%;
+  height: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid red;
+}
+.text-body-container-end img {
+  width: 90%;
+}
+.learn-more-container-end {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid red;
+}
+.learn-more-container-end img {
+  width: 45%;
+}
+.logo-container-end{
+  width: 100%;
+  height: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid red;
+}
+.logo-container-end img {
+  width: 55%;
+}
+/* .bottom{
+  border: 1px solid green;
+  background-color: rgb(72, 160, 204) ;
+  height: 10;
+  margin: 0;
+  padding: 0;
+} */
