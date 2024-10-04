@@ -2,15 +2,138 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  overflow: hidden;
-  
 }
 body {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background-image: url("./img/bgd.png");
+  /* overflow: hidden; */
 }
 .top-container{
+  position: relative;
   width: 100%;
-  height: ;
+  height: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+ border: 1px solid red; 
+}
+.top-container img{
+  position: absolute;
+  top: 0;
+  width: 60%;
+  height: 100%;
+  object-fit: contain;
+}
+.video-container{
+  width: 100%;
+  height: 33%;
+  border: 1px solid red; 
+}
+.video-container img{
+width: 100%;
+object-fit: contain;
+}
+
+
+
+
+.woman-absolute{
+  position: relative;
+}
+.people-container{
+  width: 100%;
+  height: 42%;
+  position: relative;
+  /* overflow: hidden; */
+  border: 1px solid rgb(46, 202, 168); 
+}
+.large-woman{
+  overflow: hidden;
+}
+.people-light{
+width: 100%;
+ animation: changeSizeLight 2s ease forwards; 
+}
+
+ @keyframes changeSizeLight{
+  0%{
+    transform: translateX(0%) translateY(-32%) scale(0.8);
+  }
+  50%{
+    transform: translateX(0%) translateY(-25%) scale(0.6);
+ }
+  100%{
+     transform: translateX(31%) translateY(-25%) scale(0.6);
+  }
+} 
+
+.pic-large-woman{
+  position: absolute;
+  z-index: 2;
+  left: -10%;
+  transform: translateX(-50%) translateY(-19%) scale(0.6); 
+  animation: changeSizeWoman 2s ease forwards;
+} 
+
+@keyframes changeSizeWoman{
+  0%{
+    transform: translateX(-50%) translateY(-19%) scale(0.6);
+  }
+  50%{
+    transform: translateX(-38%) translateY(-41%) scale(0.16);
+ }
+  100%{
+     transform: translateX(-31%) translateY(-41%) scale(0.16);
+  }
+} 
+
+
+.people-large-woman img{
+  width: 100%;
+}
+
+
+.people-gallery{
+  /* position: relative; */
+}
+.people-gallery-absolute{
+  /* position: absolute; */
+  display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start; 
+    align-items: center; 
+    gap: 3px; 
+}
+.people-gallery img{
+width: 50%;
+object-fit: contain;
+}
+
+
+
+.footer-container{
+  position: fixed;
+  bottom: 0;
+  z-index: 5;
+  width: 100%;
+  height: 10%;
+  display: flex;
+  border: 1px solid red; 
+}
+.footer-left {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+.footer-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer-left img{
+  width: 95%;
+  }
+.footer-right img{
+width: 85%;
 }
