@@ -3,137 +3,191 @@
   margin: 0;
   padding: 0;
 }
+html {
+  overflow: hidden;
+}
 body {
   width: 100vw;
   height: 100vh;
   background-image: url("./img/bgd.png");
-  /* overflow: hidden; */
+  overflow: hidden;
 }
-.top-container{
+.top-container {
   position: relative;
   width: 100%;
-  height: 15%;
+  height: 15vh;
   display: flex;
   align-items: center;
-  justify-content: center; 
- border: 1px solid red; 
+  justify-content: center;
+  border: 1px solid red;
 }
-.top-container img{
+.top-container img {
   position: absolute;
   top: 0;
   width: 60%;
   height: 100%;
   object-fit: contain;
 }
-.video-container{
+.video-container {
   width: 100%;
-  height: 33%;
-  border: 1px solid red; 
+  height: 30vh;
+  border: 1px solid red;
 }
-.video-container img{
-width: 100%;
-object-fit: contain;
-}
-
-
-
-
-.woman-absolute{
-  position: relative;
-}
-.people-container{
+.video-container img {
   width: 100%;
-  height: 42%;
+  object-fit: contain;
+}
+
+.people-container {
+  width: 100%;
+  height: 45vh;
   position: relative;
-  /* overflow: hidden; */
-  border: 1px solid rgb(46, 202, 168); 
-}
-.large-woman{
-  overflow: hidden;
-}
-.people-light{
-width: 100%;
- animation: changeSizeLight 2s ease forwards; 
+  border: 1px solid rgb(46, 202, 168);
 }
 
- @keyframes changeSizeLight{
-  0%{
-    transform: translateX(0%) translateY(-32%) scale(0.8);
-  }
-  50%{
-    transform: translateX(0%) translateY(-25%) scale(0.6);
- }
-  100%{
-     transform: translateX(31%) translateY(-25%) scale(0.6);
-  }
-} 
+.animation {
+  animation-timing-function: ease-in-out; /* Обеспечивает плавное замедление и ускорение */
+}
+.large-woman {
+  position: relative;
+  z-index: 2;
+  animation: slideWoman 9s linear forwards;
+  animation-delay: 2s;
+}
 
-.pic-large-woman{
+@keyframes slideWoman {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(130%);
+  }
+}
+
+.people-light {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  animation: changeSizeLight 2s ease forwards;
+}
+
+@keyframes changeSizeLight {
+  0% {
+    transform: translateX(0%) translateY(-20%) scale(0.8);
+  }
+  50% {
+    transform: translateX(0%) translateY(-27%) scale(0.5);
+  }
+  100% {
+    transform: translateX(38%) translateY(-27%) scale(0.5);
+  }
+}
+
+.pic-large-woman {
   position: absolute;
   z-index: 2;
   left: -10%;
-  transform: translateX(-50%) translateY(-19%) scale(0.6); 
+  transform: translateX(-50%) translateY(-19%) scale(0.6);
   animation: changeSizeWoman 2s ease forwards;
-} 
+}
 
-@keyframes changeSizeWoman{
-  0%{
+@keyframes changeSizeWoman {
+  0% {
     transform: translateX(-50%) translateY(-19%) scale(0.6);
   }
-  50%{
-    transform: translateX(-38%) translateY(-41%) scale(0.16);
- }
-  100%{
-     transform: translateX(-31%) translateY(-41%) scale(0.16);
+  50% {
+    transform: translateX(-38%) translateY(-43%) scale(0.2);
   }
-} 
-
-
-.people-large-woman img{
-  width: 100%;
+  100% {
+    transform: translateX(-30%) translateY(-43%) scale(0.2);
+  }
 }
 
-
-.people-gallery{
-  /* position: relative; */
+.animation{
+  position: absolute; 
+  bottom: 0;
+  /* animation: slide 5s linear forwards; 
+  animation-delay: 2s;  */
+   transform: translateX(-130%);
 }
-.people-gallery-absolute{
-  /* position: absolute; */
+.people-gallery-absolute {
   display: flex;
-    flex-direction: row-reverse;
-    justify-content: flex-start; 
-    align-items: center; 
-    gap: 3px; 
-}
-.people-gallery img{
-width: 50%;
-object-fit: contain;
+  flex-direction: row-reverse;
+  align-items: end; 
+  transition: transform 0.3s ease;
+  width: 100vw;
 }
 
+@keyframes slide {
+  0% {
+    transform: translateX(-130%);
+  }
+  20%{
+    transform: translateX(-76%);
+  }
+  100% {
+    transform: translateX(calc(100vw - 30%));
+  }
+}
+
+@keyframes slideBack {
+  0% {  transform: translateX(calc(100vw + 25%)); }
+  100% {    transform: translateX(0%);} /* Перемещает элемент обратно вправо */
+}
 
 
-.footer-container{
-  position: fixed;
+.item {
+  flex: 0 0 auto;
+  width: 60%;
+  margin-right: -27%;
+}
+
+.item.top {
+  position: relative;
+  z-index: 3;
+  transform: translateY(-7%);
+  width: 53%;
+}
+.item.yellow-margin {
+  margin-left: 4%;
+  margin-right: -36%;
+}
+.item.pink-margin {
+  margin-right: -36%;
+}
+.item.last-man {
+  width: 65%;
+}
+.item.prev-man {
+  width: 48%;
+}
+.woman-gallery{
+  display: none;
+}
+
+.footer-container {
+  position: absolute;
   bottom: 0;
   z-index: 5;
   width: 100%;
-  height: 10%;
+  height: 10vh;
   display: flex;
-  border: 1px solid red; 
+  border: 1px solid red;
 }
 .footer-left {
   display: flex;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
 }
 .footer-right {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.footer-left img{
-  width: 95%;
-  }
-.footer-right img{
-width: 85%;
+.footer-left img {
+  width: 90%;
+}
+.footer-right img {
+  width: 80%;
 }
