@@ -35,27 +35,28 @@ body {
   /* border: 1px solid red; */
 }
 .screenshot {
-  width: 100%;
+  width: 94%;
   object-fit: contain;
   display: none;
+  margin: 0 3%;
 }
 .video {
-  width: 100%;
+  width: 94%;
   object-fit: contain;
+margin: 0 3%;
 }
 .soundOn{
   position: absolute;
 top: 0;
-left: 0;
-width: 8%;
+left: 3%;
+width: 7%;
 display: none;
 }
 .soundOff{
 position: absolute;
 top: 0;
-left: 0;
+left: 3%;
 width: 8%;
-
 }
 
 .people-container {

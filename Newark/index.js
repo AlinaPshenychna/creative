@@ -186,87 +186,45 @@ class Swiper extends EventTarget {
 const swiperElem = document.querySelector(".people-gallery-absolute");
 const swiper = new Swiper(swiperElem);
 
-// class Swiper extends EventTarget {
-//     constructor(element, options = { tresholdX: 20, tresholdY: 20 }) {
-//         super();
-//         this._element = element;
-//         this._options = options;
-//         this._startX = 0;
-//         this._startY = 0;
-//         this._element.addEventListener('touchstart', this._handleTouchStart.bind(this), false);
-//         this._element.addEventListener('touchend', this._handleTouchEnd.bind(this), false);
-//     }
 
-//     _handleTouchStart(event) {
-//         this._startX = event.changedTouches[0].clientX;
-//         this._startY = event.changedTouches[0].clientY;
-//     }
 
-//     _handleTouchEnd(event) {
-//         const direction = this._getSwipeDirection(
-//             event.changedTouches[0].clientX,
-//             event.changedTouches[0].clientY
-//         );
-//         if (direction.left) {
-//             this.dispatchEvent(new CustomEvent('swipeLeft'));
-//         }
-//         if (direction.right) {
-//             this.dispatchEvent(new CustomEvent('swipeRight'));
-//         }
-//         if (direction.top) {
-//             this.dispatchEvent(new CustomEvent('swipeTop'));
-//         }
-//         if (direction.bottom) {
-//             this.dispatchEvent(new CustomEvent('swipeBottom'));
-//         }
-//     }
 
-//     _getSwipeDirection(clientX, clientY) {
-//         const currX = clientX - this._startX;
-//         const currY = clientY - this._startY;
-//         return {
-//             left: Math.abs(currX) > this._options.tresholdX && currX < 0,
-//             right: Math.abs(currX) > this._options.tresholdX && currX > 0,
-//             top: Math.abs(currY) > this._options.tresholdY && currY < 0,
-//             bottom: Math.abs(currY) > this._options.tresholdY && currY > 0
-//         };
-//     }
+
+
+
+//REACT
+// eslint-disable-next-line no-restricted-imports
+// import { Swiper } from './index';
+// const showNextSlide = (): void => {
+//     alert('right');
+// };
+// const showPreviousSlide = (): void => {
+//     alert('left');
+// };
+// const showTopSlide = (): void => {
+//     alert('top');
+// };
+// const showBottomSlide = (): void => {
+//     alert('bottom');
+// };
+// const swiperContent = document.querySelector<HTMLElement>('.LM_content');
+// if (swiperContent) {
+//     const swiper = new Swiper(swiperContent, {
+//         tresholdX: 50,
+//         tresholdY: 50
+//     });
+//     swiper.addEventListener('swipeLeft', showPreviousSlide);
+//     swiper.addEventListener('swipeRight', showNextSlide);
+//     swiper.addEventListener('swipeTop', showTopSlide);
+//     swiper.addEventListener('swipeBottom', showBottomSlide);
 // }
 
-// // Пример использования:
-// const swiperElement = document.querySelector('.people-gallery-absolute');
-// const swiper = new Swiper(swiperElement);
-// swiper.addEventListener('swipeLeft', () => {
-//     console.log('Swiped left');
-// });
-// swiper.addEventListener('swipeRight', () => {
-//     console.log('Swiped right');
-// });
 
-// // Сначала инициализируем Swiper с контейнером people-gallery-absolute
 
-// const peopleGallery = document.querySelector('.people-gallery-absolute');
-// const items = document.querySelectorAll('.item');
-// let currentTranslate = 0; // начальный сдвиг
-// const itemWidth = 60; // ширина элемента в процентах
 
-// // Инициализация Swiper для people-gallery-absolute
-// if (peopleGallery) {
-//     const swiper = new Swiper(peopleGallery, { tresholdX: 50, tresholdY: 50 });
 
-//     swiper.addEventListener('swipeLeft', () => {
-//         currentTranslate -= itemWidth;
-//         currentTranslate = Math.max(-((items.length - 1) * itemWidth), currentTranslate); // ограничиваем сдвиг влево
-//         peopleGallery.style.transform = `translateX(${currentTranslate}%)`;
-//     });
 
-//     swiper.addEventListener('swipeRight', () => {
-//         currentTranslate += itemWidth;
-//         currentTranslate = Math.min(0, currentTranslate); // ограничиваем сдвиг вправо
-//         peopleGallery.style.transform = `translateX(${currentTranslate}%)`;
-//     });
-// }
-
+//TYPE SCRIPT
 // type Treshold = {
 //     tresholdX: number;
 //     tresholdY: number;
@@ -316,40 +274,3 @@ const swiper = new Swiper(swiperElem);
 //         };
 //     };
 // }
-
-// let startX;
-// let currentTranslate = 0; // Переменная для отслеживания текущего сдвига
-// const peopleGallery = document.querySelector('.people-gallery-absolute');
-// const items = document.querySelectorAll('.item');
-
-// function touchStartHandler(event) {
-//     startX = event.touches[0].clientX; // Получаем начальную позицию касания
-// }
-
-// function touchMoveHandler(event) {
-//     const moveX = event.touches[0].clientX - startX; // Вычисляем смещение
-//     currentTranslate = Math.max(-((items.length - 1) * 60%), Math.min(0, currentTranslate + moveX)); // Ограничиваем перемещение
-//     peopleGallery.style.transform = `translateX(${currentTranslate}px)`; // Применяем сдвиг
-//     startX = event.touches[0].clientX; // Обновляем начальную позицию
-// }
-
-// function touchEndHandler(event) {
-//     const moveX = event.changedTouches[0].clientX - startX; // Определяем, был ли свайп
-//     if (Math.abs(moveX) > 50) { // Если свайп более 50 пикселей
-//         if (moveX > 0) {
-//             // Свайп вправо
-//             currentTranslate += 60; // Сдвигаем вправо
-//         } else {
-//             // Свайп влево
-//             currentTranslate -= 60; // Сдвигаем влево
-//         }
-//     }
-//     // Ограничиваем перемещение в пределах элементов
-//     currentTranslate = Math.max(-((items.length - 1) * 60), Math.min(0, currentTranslate));
-//     peopleGallery.style.transform = `translateX(${currentTranslate}px)`; // Применяем сдвиг
-// }
-
-// // Привязываем события касания
-// peopleGallery.addEventListener('touchstart', touchStartHandler);
-// peopleGallery.addEventListener('touchmove', touchMoveHandler);
-// peopleGallery.addEventListener('touchend', touchEndHandler);
