@@ -19,7 +19,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* border: 1px solid red; */
 }
 .top-container img {
   position: absolute;
@@ -42,31 +41,28 @@ body {
 .video {
   width: 94%;
   object-fit: contain;
-margin: 0 3%;
+  margin: 0 3%;
 }
-.soundOn{
+.sound-on {
   position: absolute;
-top: 0;
-left: 3%;
-width: 7%;
-display: none;
+  top: 0;
+  left: 3%;
+  width: 7%;
+  display: none;
 }
-.soundOff{
-position: absolute;
-top: 0;
-left: 3%;
-width: 8%;
+.sound-off {
+  position: absolute;
+  top: 0;
+  left: 3%;
+  width: 8%;
 }
-
 .people-container {
   width: 100%;
   height: 45vh;
   position: relative;
-  /* border: 1px solid rgb(46, 202, 168); */
 }
-
 .animation {
-  animation-timing-function: ease-in-out; /* Обеспечивает плавное замедление и ускорение */
+  animation-timing-function: ease-in-out;
 }
 .large-woman {
   position: relative;
@@ -74,7 +70,6 @@ width: 8%;
   animation: slideWoman 9s linear forwards;
   animation-delay: 2s;
 }
-
 @keyframes slideWoman {
   0% {
     transform: translateX(0);
@@ -83,7 +78,6 @@ width: 8%;
     transform: translateX(130%);
   }
 }
-
 .people-light {
   position: absolute;
   top: 0;
@@ -91,7 +85,6 @@ width: 8%;
   width: 100%;
   animation: changeSizeLight 2s ease forwards;
 }
-
 @keyframes changeSizeLight {
   0% {
     transform: translateX(0%) translateY(-20%) scale(0.8);
@@ -103,7 +96,6 @@ width: 8%;
     transform: translateX(29%) translateY(-27%) scale(0.5);
   }
 }
-
 .pic-large-woman {
   position: absolute;
   z-index: 2;
@@ -111,7 +103,6 @@ width: 8%;
   transform: translateX(-50%) translateY(-19%) scale(0.6);
   animation: changeSizeWoman 2s ease forwards;
 }
-
 @keyframes changeSizeWoman {
   0% {
     transform: translateX(-50%) translateY(-19%) scale(0.6);
@@ -123,20 +114,12 @@ width: 8%;
     transform: translateX(-30%) translateY(-43%) scale(0.2);
   }
 }
-
 .animation {
   position: absolute;
   bottom: 0;
   transform: translateX(-130%);
+  animation: slide 9s ease 1s forwards;
 }
-.people-gallery-absolute {
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: end;
-  transition: transform 0.3s ease;
-  width: 100vw;
-}
-
 @keyframes slide {
   0% {
     transform: translateX(-130%);
@@ -145,30 +128,47 @@ width: 8%;
     transform: translateX(-76%);
   }
   100% {
-    transform: translateX(calc(100vw - 30%));
+    transform: translateX(130%);
   }
 }
-
+.back-animation {
+  animation: slideBack 9s ease-in-out forwards;
+}
 @keyframes slideBack {
   0% {
-    transform: translateX(calc(100vw + 25%));
+    transform: translateX(205%);
   }
   100% {
     transform: translateX(0%);
-  } /* Перемещает элемент обратно вправо */
+  }
 }
-
+.people-gallery-absolute {
+  width: 100vw;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: end;
+  transition: transform 0.3s ease;
+}
+.slider-wrapper {
+  overflow-x: scroll;
+  position: absolute;
+  z-index: 10;
+  bottom: 20%;
+  scrollbar-width: none;
+}
+.people-gallery-absolute::-webkit-scrollbar {
+  display: none;
+}
 .item {
   flex: 0 0 auto;
-  width: 60%;
+  width: 70%;
   margin-right: -27%;
 }
-
 .item.top {
   position: relative;
   z-index: 3;
   transform: translateY(-7%);
-  width: 53%;
+  width: 60%;
 }
 .item.yellow-margin {
   margin-left: 4%;
@@ -178,15 +178,14 @@ width: 8%;
   margin-right: -36%;
 }
 .item.last-man {
-  width: 65%;
+  width: 47%;
 }
 .item.prev-man {
-  width: 48%;
+  width: 53%;
 }
 .woman-gallery {
   display: none;
 }
-
 .footer-container {
   position: absolute;
   bottom: 0;
@@ -194,7 +193,6 @@ width: 8%;
   width: 100%;
   height: 10vh;
   display: flex;
-  /* border: 1px solid red; */
 }
 .footer-left {
   display: flex;
