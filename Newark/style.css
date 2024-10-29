@@ -44,17 +44,17 @@ body {
   margin: 0 3%;
 }
 .sound-on {
+  width: 7%;
   position: absolute;
   top: 0;
   left: 3%;
-  width: 7%;
   display: none;
 }
 .sound-off {
+  width: 8%;
   position: absolute;
   top: 0;
   left: 3%;
-  width: 8%;
 }
 .people-container {
   width: 100%;
