@@ -10,6 +10,10 @@
   background-image: url(./img/bgd_m.jpg);
   background-size: contain;
   overflow: hidden;
+  display: none;
+}
+.container.start-animation {
+  display: block;
 }
 .logo-container {
   width: 100%;
@@ -25,7 +29,7 @@
   width: 50%;
   position: absolute;
 }
-.logo-top-left {
+.start-animation .logo-top-left {
   animation: logo-top-left 0.3s linear;
 }
 @keyframes logo-top-left {
@@ -38,7 +42,7 @@
     transform: translateX(4%);
   }
 }
-.logo-top-right {
+.start-animation .logo-top-right {
   animation: logo-top-right 0.3s linear;
 }
 @keyframes logo-top-right {
@@ -55,9 +59,10 @@
   display: flex;
   justify-content: center;
 }
-.logo-tagline img {
+.start-animation .logo-tagline img {
   width: 50%;
-  animation: logo-tagline 0.5s;
+  opacity: 0;
+  animation: logo-tagline 0.5s forwards;
 }
 @keyframes logo-tagline {
   0% {
@@ -70,9 +75,9 @@
 .main-container {
   position: relative;
   width: 100%;
-  height: 35%;
+  height: 40%;
 }
-.text-img {
+.start-animation .text-img {
   position: absolute;
   width: 60%;
   transform: translateX(-100%);
@@ -100,16 +105,24 @@
     transform: translateX(0);
   }
 }
-.cta-container {
-  position: relative;
+.start-animation .cta-container {
+  position: absolute;
+  bottom: 0;
   width: 20%;
-  height: 5%;
+  height: 10%;
   background-image: url(./img/cta_btn_m.png);
   margin-left: 3%;
-  margin-top: 3%;
   opacity: 0;
   animation: bg-text-appear 1s ease-in-out 1.8s forwards,
     pulse 1s ease-in-out 2.6s infinite;
+}
+.start-animation .cta-text {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  animation: bg-text-appear 2s ease-in-out forwards;
 }
 @keyframes bg-text-appear {
   0% {
@@ -118,13 +131,6 @@
   100% {
     opacity: 1;
   }
-}
-.cta-text {
-  position: absolute;
-  width: 100%;
-  padding-top: 2%;
-  opacity: 0;
-  animation: bg-text-appear 2s ease-in-out forwards;
 }
 .cta-text:nth-child(1) {
   animation-delay: 1.8s;
@@ -146,11 +152,11 @@
   width: 100%;
   height: 46%;
 }
-.bg-footer {
-  position: absolute;
-  bottom: -10%;
+.start-animation .bg-footer {
   width: 100%;
   height: 100%;
+  position: absolute;
+  bottom: -10%;
   z-index: 1;
   animation: bg-footer-move 1s ease-in-out forwards;
 }
@@ -163,17 +169,18 @@
   }
 }
 .shadow-footer {
-  position: absolute;
-  bottom: 0;
   width: 100%;
   height: 100%;
+  position: absolute;
+  bottom: 0;
   z-index: 1;
 }
-.legacy-footer {
-  width: 90%;
+.start-animation .legacy-footer {
+  width: 85%;
   position: absolute;
   z-index: 5;
   left: 50%;
+  bottom: 10%;
   transform: translateX(-50%);
   animation: legacy-footer-move 1.3s ease-out forwards;
 }
@@ -187,12 +194,14 @@
     bottom: 10%;
   }
 }
-.ball {
-  width: 65%;
+.start-animation .ball {
+  width: 62%;
   position: absolute;
   right: -70%;
   top: 70%;
   z-index: 10;
+  opacity: 0;
+  transform: rotate(200deg);
   animation: ball-move 2s ease-out forwards;
 }
 @keyframes ball-move {
@@ -211,7 +220,19 @@
   100% {
     opacity: 1;
     right: -3%;
-    top: -8%;
+    top: -4%;
     transform: rotate(0);
+  }
+}
+
+@media (max-width: 420px) and (max-height: 620px) {
+  .start-animation .text-img {
+    width: 50%;
+  }
+  .start-animation .legacy-footer {
+    width: 80%;
+  }
+  .start-animation .ball {
+    width: 55%;
   }
 }
