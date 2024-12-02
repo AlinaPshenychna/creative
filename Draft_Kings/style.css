@@ -1,0 +1,225 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background-image: url(./img/bgd_m.jpg);
+  background-size: contain;
+  overflow: hidden;
+  display: none;
+}
+.container.start-animation {
+  display: block;
+}
+.logo-container,
+.main-container,
+.footer-container,
+.cta-text,
+.bg-footer,
+.shadow-footer {
+  width: 100%;
+}
+.logo-container {
+  height: 15%;
+  padding-top: 4%;
+}
+.logo-top {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.logo-top img {
+  width: 50%;
+  position: absolute;
+}
+.start-animation .logo-top-left {
+  animation: logo-top-left 0.3s linear;
+}
+@keyframes logo-top-left {
+  0% {
+    opacity: 0.3;
+    transform: translateX(-15%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(4%);
+  }
+}
+.start-animation .logo-top-right {
+  animation: logo-top-right 0.3s linear;
+}
+@keyframes logo-top-right {
+  0% {
+    opacity: 0.3;
+    transform: translateX(15%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-4%);
+  }
+}
+.logo-tagline {
+  display: flex;
+  justify-content: center;
+}
+.start-animation .logo-tagline img {
+  width: 50%;
+  opacity: 0;
+  animation: item-visibility 0.5s forwards;
+}
+@keyframes item-visibility {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.main-container {
+  position: relative;
+  height: 40%;
+}
+.start-animation .text-img {
+  position: absolute;
+  width: 60%;
+  transform: translateX(-100%);
+  animation: move-text 0.7s ease-in-out forwards, item-visibility 1.2s forwards;
+}
+.text-img:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.text-img:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.text-img:nth-child(4) {
+  animation-delay: 0.9s;
+}
+.text-img:nth-child(5) {
+  animation-delay: 1.2s;
+}
+@keyframes move-text {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.start-animation .cta-container {
+  position: absolute;
+  bottom: 0;
+  width: 20%;
+  height: 10%;
+  background-image: url(./img/cta_btn_m.png);
+  margin-left: 3%;
+  opacity: 0;
+  animation: item-visibility 1s ease-in-out 1.8s forwards,
+    pulse 1s ease-in-out 2.6s infinite;
+}
+.start-animation .cta-text {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  animation: item-visibility 2s ease-in-out forwards;
+}
+.cta-text:nth-child(1) {
+  animation-delay: 1.8s;
+}
+.cta-text:nth-child(2) {
+  animation-delay: 2.2s;
+}
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+.footer-container {
+  position: relative;
+  height: 46%;
+}
+.start-animation .bg-footer {
+  height: 100%;
+  position: absolute;
+  bottom: -10%;
+  z-index: 1;
+  animation: bg-footer-move 1s ease-in-out forwards;
+}
+@keyframes bg-footer-move {
+  0% {
+    bottom: -10%;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+.shadow-footer {
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+}
+.start-animation .legacy-footer {
+  width: 85%;
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  bottom: 10%;
+  transform: translateX(-50%);
+  animation: legacy-footer-move 1.3s ease-out forwards,
+    item-visibility 1.3s forwards;
+}
+@keyframes legacy-footer-move {
+  0% {
+    bottom: -100%;
+  }
+  100% {
+    bottom: 10%;
+  }
+}
+.start-animation .ball {
+  width: 62%;
+  position: absolute;
+  right: -70%;
+  top: 70%;
+  z-index: 10;
+  opacity: 0;
+  transform: rotate(200deg);
+  animation: ball-move 2s ease-out forwards, item-visibility 2s forwards;
+}
+@keyframes ball-move {
+  0% {
+    right: -70%;
+    transform: rotate(200deg);
+  }
+  80% {
+    opacity: 1;
+    transform: rotate(-30deg);
+    right: -2%;
+    top: -7%;
+  }
+  100% {
+    right: -3%;
+    top: -4%;
+    transform: rotate(0);
+  }
+}
+@media (max-width: 420px) and (max-height: 620px) {
+  .start-animation .text-img {
+    width: 50%;
+  }
+  .start-animation .legacy-footer {
+    width: 78%;
+  }
+  .start-animation .ball {
+    width: 53%;
+  }
+}
