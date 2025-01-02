@@ -1,0 +1,342 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(./img/general/bg.png);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.video-container {
+  width: 100%;
+  position: relative;
+  display: flex;
+  aspect-ratio: 16/9;
+}
+.screenshot,
+.video {
+  width: 100%;
+  aspect-ratio: 16/9;
+}
+.hidden {
+  display: none;
+} 
+.sound-on {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 2%;
+  left: 2%;
+  opacity: 1;
+  border: none;
+  background-color: transparent;
+  background-size: contain;
+  background-image: url(./img/soundOn.png);
+}
+.sound-off{
+  background-image: url(./img/soundOff.png);
+}
+.main-content-container {
+  width: 100%;
+  height: 65%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+.top-content,
+.bin-container {
+  flex-grow: 1;
+}
+.cloud-wrapper {
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+}
+.cloud-top {
+  width: 18vw;
+  animation: move-cloud 20s linear infinite forwards;
+}
+.start-animation .cloud-bottom {
+  width: 15vw;
+  transform: translateX(-20vw);
+  animation: move-cloud 20s linear 5s infinite forwards;
+}
+@keyframes move-cloud {
+  0%,
+  100% {
+    transform: translateX(-20vw);
+  }
+  50% {
+    transform: translateX(105vw);
+  }
+}
+.top-content {
+  height: 35%;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 2.1;
+  margin: 0 auto;
+}
+.start-animation .top-text-food {
+  width: 35%;
+  margin-top: 1%;
+  transform: translateY(100%);
+  animation: move-to-default 1s cubic-bezier(0.77, 0, 0.175, 1) forwards,
+    text-scale 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+.start-animation .top-text-liquids {
+  width: 45%;
+  margin-top: 1%;
+  transform: translateY(-107%);
+  scale: 0;
+  animation: move-to-default 1s 0.2s cubic-bezier(0.77, 0, 0.175, 1) forwards,
+    text-scale 1s 0.2s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+@keyframes text-scale {
+  0% {
+    scale: 0;
+  }
+  100% {
+    scale: 1;
+  }
+}
+@keyframes move-to-default{
+  to {
+    transform: translate(0);
+  }
+}
+.start-animation .string-text-container {
+  width: 65%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  margin: 2% 0;
+  padding: 1% 1% 0.5% 1%;
+  background-color: rgb(255 255 255);
+  border-radius: 10px;
+  animation: move-to-default 1s cubic-bezier(0.77, 0, 0.175, 1) forwards,
+    text-scale 1s cubic-bezier(0.77, 0, 0.175, 1) forwards,
+    text-opacity 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+.start-animation .string-text-container li {
+  animation: text-opacity 1s ease-out 1s forwards;
+  opacity: 0;
+}
+.string-text {
+  width: 100%;
+  padding: 0 5%;
+}
+.start-animation .green-tick {
+  position: absolute;
+  width: 10%;
+  padding: 0 2px;
+}
+@keyframes text-opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.start-animation .string-text-container li:nth-child(1) {
+  animation-delay: 1s;
+}
+.start-animation .string-text-container li:nth-child(2) {
+  animation-delay: 2s;
+}
+.start-animation .string-text-container li:nth-child(3) {
+  animation-delay: 3s;
+}
+.start-animation .swipe-text {
+  height: 28%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 2%;
+  border-radius: 10px;
+  background-color: rgb(210 82 101);
+  margin: 0 auto;
+  aspect-ratio: 3.5;
+  opacity: 0;
+  overflow: hidden;
+  animation: text-opacity 1s ease-out 1s forwards;
+}
+.swipe-text img {
+  opacity: 0;
+}
+.start-animation .swipe-text-content {
+  width: 95%;
+  padding-left: 5%;
+  transform: translateX(60%);
+  animation: move-to-default 1s ease-out 2s forwards,
+    text-opacity 2s ease-out 2s forwards;
+}
+.start-animation .swipe-text-arrow {
+  width: 9%;
+  animation: move-to-default 1s ease-out 2s forwards,
+    text-opacity 2s ease-out 2s forwards;
+}
+.bin-container {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  bottom: 0;
+  margin-top: 2%;
+}
+.img-wrapper {
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  z-index: 3;
+  display: flex;
+  aspect-ratio: 1.1;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.coffee-open,
+.coffee-close {
+  width: 20%;
+  position: absolute;
+  left: 13%;
+  top: 7%;
+}
+.coffee-open {
+  opacity: 1;
+}
+.coffee-close {
+  opacity: 0;
+}
+@keyframes blink {
+  0%,
+  80%,
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+  85% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+.banana-open,
+.banana-close {
+  animation: blink 1.5s infinite;
+}
+.banana-close {
+  animation-delay: 1.2s;
+}
+@keyframes blink-coffee {
+  0%,
+  80.9%,
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+  81% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+.coffee-close,
+.coffee-open {
+  animation: blink-coffee 1.5s infinite;
+}
+.coffee-close {
+  animation-delay: 0.8s;
+}
+.bin-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.bin {
+  height: 95%;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  margin-top: 3%;
+}
+.start-animation .bin-mouth {
+  width: 13%;
+  position: absolute;
+  z-index: 2;
+  left: 44%;
+  top: 27%;
+  animation: move-hands 0.5s cubic-bezier(0.445, 0.05, 0.55, 0.95) forwards
+    infinite alternate;
+}
+.start-animation .bin-left-hand {
+  width: 25%;
+  height: 25%;
+  position: absolute;
+  left: 2%;
+  bottom: 40%;
+  animation: move-hands 0.5s cubic-bezier(0.445, 0.05, 0.55, 0.95) forwards
+    infinite alternate;
+}
+.start-animation .bin-right-hand {
+  width: 24%;
+  height: 24%;
+  position: absolute;
+  right: 3%;
+  bottom: 41%;
+  animation: move-hands 0.5s cubic-bezier(0.445, 0.05, 0.55, 0.95) forwards
+    infinite alternate;
+}
+@keyframes move-hands {
+  0% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(-5deg);
+  }
+}
+.banana-open,
+.banana-close {
+  width: 27%;
+  position: absolute;
+  right: 10%;
+  top: 9%;
+}
+.banana-open {
+  opacity: 1;
+}
+.banana-close {
+  opacity: 0;
+}
+.footer-bottom {
+  width: 100%;
+  height: 12vh;
+  position: absolute;
+  bottom: 0;
+  z-index: 4;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #fff;
+}
+.footer-bottom img:nth-child(1) {
+  width: 100%;
+  height: 5vh;
+}
+.footer-bottom img:nth-child(2) {
+  width: 100%;
+  height: 6vh;
+  aspect-ratio: 11;
+}
