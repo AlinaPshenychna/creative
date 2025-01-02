@@ -22,25 +22,6 @@
   width: 100%;
   aspect-ratio: 16/9;
 }
-/* .sound-on,
-.sound-off {
-  width: 30px;
-  height: 30px;
-  opacity: 1;
-  background-size: contain;
-}
-.mute-button {
-  position: absolute;
-  top: 2%;
-  left: 2%;
-  z-index: 170;
-}
-.sound-on {
-  background-image: url("./img/soundOn.png");
-}
-.sound-off {
-  background-image: url("./img/soundOff.png");
-} */
 .hidden {
   display: none;
 } 
@@ -60,8 +41,6 @@
 .sound-off{
   background-image: url(./img/soundOff.png);
 }
-
-
 .main-content-container {
   width: 100%;
   height: 65%;
@@ -115,7 +94,7 @@
   width: 35%;
   margin-top: 1%;
   transform: translateY(100%);
-  animation: move-food 1s cubic-bezier(0.77, 0, 0.175, 1) forwards,
+  animation: move-to-default 1s cubic-bezier(0.77, 0, 0.175, 1) forwards,
     text-scale 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
 }
 .start-animation .top-text-liquids {
@@ -123,7 +102,7 @@
   margin-top: 1%;
   transform: translateY(-107%);
   scale: 0;
-  animation: move-liquids 1s 0.2s cubic-bezier(0.77, 0, 0.175, 1) forwards,
+  animation: move-to-default 1s 0.2s cubic-bezier(0.77, 0, 0.175, 1) forwards,
     text-scale 1s 0.2s cubic-bezier(0.77, 0, 0.175, 1) forwards;
 }
 @keyframes text-scale {
@@ -134,20 +113,9 @@
     scale: 1;
   }
 }
-@keyframes move-food {
-  0% {
-    transform: translateY(100%);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-@keyframes move-liquids {
-  0% {
-    transform: translateY(-107%);
-  }
-  100% {
-    transform: translateY(0);
+@keyframes move-to-default{
+  to {
+    transform: translate(0);
   }
 }
 .start-animation .string-text-container {
@@ -161,17 +129,9 @@
   padding: 1% 1% 0.5% 1%;
   background-color: rgb(255 255 255);
   border-radius: 10px;
-  animation: move-bg 1s cubic-bezier(0.77, 0, 0.175, 1) forwards,
+  animation: move-to-default 1s cubic-bezier(0.77, 0, 0.175, 1) forwards,
     text-scale 1s cubic-bezier(0.77, 0, 0.175, 1) forwards,
     text-opacity 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
-}
-@keyframes move-bg {
-  0% {
-    transform: translateY(60%);
-  }
-  100% {
-    transform: translateY(0);
-  }
 }
 .start-animation .string-text-container li {
   animation: text-opacity 1s ease-out 1s forwards;
@@ -228,20 +188,12 @@
 }
 .start-animation .swipe-text-arrow {
   width: 9%;
-  animation: move-swipe-arrow 1s ease-out 2s forwards,
+  animation: move-to-default 1s ease-out 2s forwards,
     text-opacity 2s ease-out 2s forwards;
 }
 @keyframes move-swipe {
   0% {
     transform: translateX(60%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-@keyframes move-swipe-arrow {
-  0% {
-    transform: translateX(15vw);
   }
   100% {
     transform: translateX(0);
