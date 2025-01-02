@@ -1,51 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const appContainer = document.querySelector(".container");
   appContainer.classList.add("start-animation");
-});
 
-const bananaOpen = document.querySelector(".banana-open");
-const bananaClose = document.querySelector(".banana-close");
-
-function blinkBanana() {
-  bananaOpen.style.opacity = 0;
-  bananaClose.style.opacity = 1;
-  setTimeout(() => {
-    bananaOpen.style.opacity = 1;
-    bananaClose.style.opacity = 0;
-  }, 300);
-}
-setInterval(blinkBanana, 1500);
-
-const coffeeOpen = document.querySelector(".coffee-open");
-const coffeeClose = document.querySelector(".coffee-close");
-
-function blink() {
-  coffeeOpen.style.opacity = 0;
-  coffeeClose.style.opacity = 1;
-  setTimeout(() => {
-    coffeeOpen.style.opacity = 1;
-    coffeeClose.style.opacity = 0;
-  }, 300);
-}
-setInterval(blink, 1500);
-
-const soundOn = document.querySelector(".sound-on");
-const soundOff = document.querySelector(".sound-off");
-const muteButton = document.querySelector(".mute-button");
-const video = document.querySelector(".video");
-
-muteButton.addEventListener("click", () => {
-  if (video.muted) {
-    soundOff.classList.add("hidden");
-    soundOn.classList.remove("hidden");
-  } else {
-    soundOn.classList.add("hidden");
-    soundOff.classList.remove("hidden");
-  }
-  video.muted = !video.muted;
-});
-
-document.addEventListener("DOMContentLoaded", () => {
   const video = document.querySelector(".video");
   const screenshot = document.querySelector(".screenshot");
 
@@ -59,4 +15,12 @@ document.addEventListener("DOMContentLoaded", () => {
     video.classList.remove("hidden");
     video.play();
   });
+});
+
+const video = document.querySelector(".video");
+const btn= document.querySelector(".sound-on");
+
+btn.addEventListener(("click"), () =>{
+video.muted=!video.muted;
+btn.classList.toggle("sound-off");
 });

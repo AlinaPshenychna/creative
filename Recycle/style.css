@@ -8,37 +8,60 @@
   height: 100vh;
   background-image: url(./img/general/bg.png);
   overflow: hidden;
-  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 .video-container {
   width: 100%;
   position: relative;
-  z-index: 20;
   display: flex;
   aspect-ratio: 16/9;
 }
-.screenshot, .video {
+.screenshot,
+.video {
   width: 100%;
   aspect-ratio: 16/9;
 }
-.sound-on, .sound-off{
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-.sound-on{
-  width: 6%;
-  opacity: 0;
-  z-index: 120;
-  opacity: 1; 
-}
-.sound-off{
-  width: 7%;
+/* .sound-on,
+.sound-off {
+  width: 30px;
+  height: 30px;
   opacity: 1;
+  background-size: contain;
 }
+.mute-button {
+  position: absolute;
+  top: 2%;
+  left: 2%;
+  z-index: 170;
+}
+.sound-on {
+  background-image: url("./img/soundOn.png");
+}
+.sound-off {
+  background-image: url("./img/soundOff.png");
+} */
 .hidden {
   display: none;
+} 
+.sound-on {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 2%;
+  left: 2%;
+  z-index: 10;
+  opacity: 1;
+  border: none;
+  background-color: transparent;
+  background-size: contain;
+  background-image: url(./img/soundOn.png);
 }
+.sound-off{
+  background-image: url(./img/soundOff.png);
+}
+
+
 .main-content-container {
   width: 100%;
   height: 65%;
@@ -54,7 +77,7 @@
 .cloud-wrapper {
   width: 100vw;
   position: absolute;
-  z-index: 70;
+  z-index: 20;
   top: 0;
   display: flex;
   flex-direction: column;
@@ -69,14 +92,12 @@
   animation: move-cloud 20s linear 5s infinite forwards;
 }
 @keyframes move-cloud {
-  0% {
+  0%,
+  100% {
     transform: translateX(-20vw);
   }
   50% {
     transform: translateX(105vw);
-  }
-  100% {
-    transform: translateX(-20vw);
   }
 }
 .top-content {
@@ -141,15 +162,14 @@
   background-color: rgb(255 255 255);
   border-radius: 10px;
   animation: move-bg 1s cubic-bezier(0.77, 0, 0.175, 1) forwards,
-    text-scale 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    text-scale 1s cubic-bezier(0.77, 0, 0.175, 1) forwards,
+    text-opacity 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
 }
 @keyframes move-bg {
   0% {
-    opacity: 0;
     transform: translateY(60%);
   }
   100% {
-    opacity: 1;
     transform: translateY(0);
   }
 }
@@ -165,7 +185,6 @@
   position: absolute;
   width: 10%;
   padding: 0 2px;
-  /* padding: 0 2px; */
 }
 @keyframes text-opacity {
   0% {
@@ -233,31 +252,70 @@
   width: 100%;
   position: relative;
   bottom: 0;
-  z-index: 110;
+  z-index: 15;
   margin-top: 2%;
 }
 .img-wrapper {
   height: 100%;
   position: absolute;
   bottom: 0;
-  z-index: 100;
+  z-index: 20;
   display: flex;
   aspect-ratio: 1.1;
   left: 50%;
   transform: translateX(-50%);
 }
-.coffee-open, .coffee-close {
+.coffee-open,
+.coffee-close {
   width: 20%;
   position: absolute;
   left: 13%;
   top: 7%;
-  z-index: 30;
+  z-index: 26;
 }
-.coffee-open{
+.coffee-open {
   opacity: 1;
 }
-.coffee-close{
+.coffee-close {
   opacity: 0;
+}
+@keyframes blink {
+  0%,
+  80%,
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+  85% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+.banana-open,
+.banana-close {
+  animation: blink 1.5s infinite;
+}
+.banana-close {
+  animation-delay: 1.2s;
+}
+@keyframes blink-coffee {
+  0%,
+  80.9%,
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+  81% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+.coffee-close,
+.coffee-open {
+  animation: blink-coffee 1.5s infinite;
+}
+.coffee-close {
+  animation-delay: 0.8s;
 }
 .bin-wrapper {
   position: relative;
@@ -270,16 +328,17 @@
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 40;
+  z-index: 27;
   margin-top: 3%;
 }
 .start-animation .bin-mouth {
   width: 13%;
   position: absolute;
-  z-index: 41;
+  z-index: 28;
   left: 44%;
   top: 27%;
-  animation: move-hands 0.5s cubic-bezier(0.445, 0.05, 0.55, 0.95) forwards infinite alternate;
+  animation: move-hands 0.5s cubic-bezier(0.445, 0.05, 0.55, 0.95) forwards
+    infinite alternate;
 }
 .start-animation .bin-left-hand {
   width: 25%;
@@ -287,7 +346,7 @@
   position: absolute;
   left: 2%;
   bottom: 40%;
-  z-index: 39;
+  z-index: 26;
   animation: move-hands 0.5s cubic-bezier(0.445, 0.05, 0.55, 0.95) forwards
     infinite alternate;
 }
@@ -297,8 +356,9 @@
   position: absolute;
   right: 3%;
   bottom: 41%;
-  z-index: 39;
-  animation: move-hands 0.5s cubic-bezier(0.445, 0.05, 0.55, 0.95) forwards infinite alternate;
+  z-index: 26;
+  animation: move-hands 0.5s cubic-bezier(0.445, 0.05, 0.55, 0.95) forwards
+    infinite alternate;
 }
 @keyframes move-hands {
   0% {
@@ -316,10 +376,10 @@
   top: 9%;
   z-index: 30;
 }
-.banana-open{
+.banana-open {
   opacity: 1;
 }
-.banana-close{
+.banana-close {
   opacity: 0;
 }
 .footer-bottom {
@@ -327,7 +387,7 @@
   height: 12vh;
   position: absolute;
   bottom: 0;
-  z-index: 150;
+  z-index: 30;
   overflow: hidden;
   display: flex;
   flex-direction: column;
