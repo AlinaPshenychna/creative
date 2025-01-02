@@ -31,7 +31,6 @@
   position: absolute;
   top: 2%;
   left: 2%;
-  z-index: 10;
   opacity: 1;
   border: none;
   background-color: transparent;
@@ -56,7 +55,6 @@
 .cloud-wrapper {
   width: 100vw;
   position: absolute;
-  z-index: 20;
   top: 0;
   display: flex;
   flex-direction: column;
@@ -83,7 +81,6 @@
   height: 35%;
   display: flex;
   position: relative;
-  z-index: 80;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -183,7 +180,8 @@
 .start-animation .swipe-text-content {
   width: 95%;
   padding-left: 5%;
-  animation: move-swipe 1s ease-out 2s forwards,
+  transform: translateX(60%);
+  animation: move-to-default 1s ease-out 2s forwards,
     text-opacity 2s ease-out 2s forwards;
 }
 .start-animation .swipe-text-arrow {
@@ -191,27 +189,18 @@
   animation: move-to-default 1s ease-out 2s forwards,
     text-opacity 2s ease-out 2s forwards;
 }
-@keyframes move-swipe {
-  0% {
-    transform: translateX(60%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
 .bin-container {
   height: 100%;
   width: 100%;
   position: relative;
   bottom: 0;
-  z-index: 15;
   margin-top: 2%;
 }
 .img-wrapper {
   height: 100%;
   position: absolute;
   bottom: 0;
-  z-index: 20;
+  z-index: 3;
   display: flex;
   aspect-ratio: 1.1;
   left: 50%;
@@ -223,7 +212,6 @@
   position: absolute;
   left: 13%;
   top: 7%;
-  z-index: 26;
 }
 .coffee-open {
   opacity: 1;
@@ -280,13 +268,13 @@
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 27;
+  z-index: 1;
   margin-top: 3%;
 }
 .start-animation .bin-mouth {
   width: 13%;
   position: absolute;
-  z-index: 28;
+  z-index: 2;
   left: 44%;
   top: 27%;
   animation: move-hands 0.5s cubic-bezier(0.445, 0.05, 0.55, 0.95) forwards
@@ -298,7 +286,6 @@
   position: absolute;
   left: 2%;
   bottom: 40%;
-  z-index: 26;
   animation: move-hands 0.5s cubic-bezier(0.445, 0.05, 0.55, 0.95) forwards
     infinite alternate;
 }
@@ -308,7 +295,6 @@
   position: absolute;
   right: 3%;
   bottom: 41%;
-  z-index: 26;
   animation: move-hands 0.5s cubic-bezier(0.445, 0.05, 0.55, 0.95) forwards
     infinite alternate;
 }
@@ -326,7 +312,6 @@
   position: absolute;
   right: 10%;
   top: 9%;
-  z-index: 30;
 }
 .banana-open {
   opacity: 1;
@@ -339,7 +324,7 @@
   height: 12vh;
   position: absolute;
   bottom: 0;
-  z-index: 30;
+  z-index: 4;
   overflow: hidden;
   display: flex;
   flex-direction: column;
