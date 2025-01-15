@@ -1,9 +1,11 @@
+function addStartAnimation() {
+  const appContainer = document.querySelector(".container");
+  appContainer.classList.add("start-animation");
+}
+
 document.addEventListener("DOMContentLoaded", () => {
-    const appContainer = document.querySelector(".container");
-    appContainer.classList.add("start-animation");
-    });
-
-
+  addStartAnimation();
+});
 
 const snowContainer = document.querySelector(".snow-container");
 
@@ -13,15 +15,26 @@ function createSnowflake() {
 
   // Случайное позиционирование и размеры снежинок
   snowflake.style.left = `${Math.random() * 100}vw`;
-  snowflake.style.animationDuration = `${Math.random() * 3 + 2}s`;
-  snowflake.style.width = snowflake.style.height = `${Math.random() * 2 + 3}px`;
+
+  const minSnowflakeDuration = 2;
+  const maxSnowflakeDuration = 5;
+  snowflake.style.animationDuration = `${
+    Math.random() * (maxSnowflakeDuration - minSnowflakeDuration) + maxSnowflakeDuration}s`;
+
+  const minSnowflakeSize = 2;
+  const maxSnowflakeSize = 3;
+  snowflake.style.width = snowflake.style.height = `${
+    Math.random() * (maxSnowflakeSize - minSnowflakeSize) + minSnowflakeSize }px`;
 
   snowContainer.appendChild(snowflake);
 
   // Удаляем снежинку после завершения анимации
+  const timeRemoveSnowflake = 10000;
   setTimeout(() => {
     snowflake.remove();
-  }, 10000);
+  }, timeRemoveSnowflake);
 }
 
-setInterval(createSnowflake, 50); // Создаем снежинку каждые 300 мс
+// Создаем снежинку каждые 10 мс
+const timeCreateSnowflake = 10;
+setInterval(createSnowflake, timeCreateSnowflake);

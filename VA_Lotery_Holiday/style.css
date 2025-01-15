@@ -36,7 +36,7 @@ body {
   border-radius: 50%;
   opacity: 0.5;
   filter: blur(1px);
-  animation: fallAndSway 9s linear infinite, appear-snow 9s linear infinite;
+  animation: snow-fall 9s linear infinite, appear-snow 9s linear infinite;
 }
 @keyframes appear-snow {
   0%,
@@ -47,7 +47,7 @@ body {
     opacity: 1;
   }
 }
-@keyframes fallAndSway {
+@keyframes snow-fall {
   0% {
     transform: translateY(0) translateX(0);
   }
@@ -155,12 +155,7 @@ body {
     transform: translateX(-50%) translateY(0);
   }
 }
-.start-animation .card1,
-.start-animation .card2,
-.start-animation .card3,
-.start-animation .card4,
-.start-animation .card5,
-.start-animation .card6 {
+.start-animation .card-img {
   position: absolute;
   opacity: 0;
 }
@@ -168,7 +163,7 @@ body {
 .card4 {
   transform: translateX(-50%);
   animation: appear-card 1.8s ease-in forwards,
-    move-cards-translateX 4s ease-in-out 6s infinite forwards;
+    move-cards-translate-x 4s ease-in-out 6s infinite forwards;
 }
 .card2,
 .card3,
@@ -231,14 +226,11 @@ body {
   animation: move-cta 2s ease-out 1s infinite forwards;
 }
 @keyframes move-cta {
-  0% {
+  0%,100%  {
     transform: scale(1);
   }
   50% {
     transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
   }
 }
 .card-bottom {
@@ -260,44 +252,28 @@ body {
     opacity: 1;
   }
 }
-@keyframes move-cards-translateX {
-  0% {
+@keyframes move-cards-translate-x {
+  0%,16%,100% {
     transform: translate(-50%, 0);
   }
   8% {
     transform: translate(-50%, -4%);
   }
-  16% {
-    transform: translate(-50%, 0);
-  }
-  100% {
-    transform: translate(-50%, 0);
-  }
 }
 @keyframes move-cards {
-  0% {
+  0%,16%,100%  {
     transform: translate(0, 0);
   }
   8% {
     transform: translate(0, -4%);
   }
-  16% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(0, 0);
-  }
 }
-
 @media (min-width: 600px) {
   .header-container :nth-child(1) {
     width: 15%;
-    padding-bottom: 5%;
-    padding-top: 5%;
   }
   .header-container :nth-child(2) {
     width: 50%;
-    padding-bottom: 3%;
   }
   .header-container :nth-child(3) {
     width: 48%;
@@ -305,31 +281,17 @@ body {
   .start-animation .main-container {
     width: 70%;
     height: 60%;
-    position: absolute;
-    z-index: 5;
-    bottom: 3%;
-    animation: main-hidden 1s forwards 1s;
   }
 }
 @media (min-width: 850px) {
   .header-container :nth-child(1) {
-    width: 15%;
-    padding-bottom: 5%;
-    padding-top: 5%;
+    width: 14%;
   }
   .header-container :nth-child(2) {
-    width: 50%;
-    padding-bottom: 3%;
-  }
-  .header-container :nth-child(3) {
-    width: 48%;
+    width: 49%;
   }
   .start-animation .main-container {
     width: 70%;
     height: 60%;
-    position: absolute;
-    z-index: 5;
-    bottom: 3%;
-    animation: main-hidden 1s forwards 1s;
-  }
+}
 }
