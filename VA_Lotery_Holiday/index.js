@@ -16,10 +16,10 @@ function createSnowflake() {
   // Случайное позиционирование и размеры снежинок
   snowflake.style.left = `${Math.random() * 100}vw`;
 
-  const minSnowflakeDuration = 2;
-  const maxSnowflakeDuration = 5;
+  const minSnowflakeDuration = 3;
+  const maxSnowflakeDuration = 4;
   snowflake.style.animationDuration = `${
-    Math.random() * (maxSnowflakeDuration - minSnowflakeDuration) + maxSnowflakeDuration}s`;
+    Math.random() * minSnowflakeDuration + maxSnowflakeDuration}s`;
 
   const minSnowflakeSize = 2;
   const maxSnowflakeSize = 3;

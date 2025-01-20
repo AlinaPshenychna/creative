@@ -30,8 +30,6 @@ body {
 .start-animation .snow {
   position: absolute;
   top: -10px;
-  width: 2px;
-  height: 2px;
   background-color: white;
   border-radius: 50%;
   opacity: 0.5;
