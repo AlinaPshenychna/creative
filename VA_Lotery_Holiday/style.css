@@ -7,6 +7,9 @@ body {
   width: 100vw;
   height: 100vh;
 }
+iframe {
+  display: none;
+}
 .container {
   width: 100vw;
   height: 100vh;

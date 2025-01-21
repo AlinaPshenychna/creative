@@ -36,5 +36,5 @@ function createSnowflake() {
 }
 
 // Создаем снежинку каждые 10 мс
-const timeCreateSnowflake = 10;
+const timeCreateSnowflake = 100;
 setInterval(createSnowflake, timeCreateSnowflake);
