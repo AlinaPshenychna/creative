@@ -132,21 +132,23 @@ iframe {
 .start-animation .top-envelope,
 .start-animation .envelope {
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%) translateY(100vh);
-  animation: appear-envelope 1s ease-in forwards;
 }
 .envelope {
   width: 91%;
   height: 49%;
   top: 51%;
   z-index: 12;
+  left: 50%;
+  transform: translateX(-50%) translateY(100vh);
+  animation: appear-envelope 1s ease-in forwards;
 }
 .top-envelope {
-  width: 87%;
-  height: 88%;
+  width: 108%;
+  height: 64%;
   top: 15%;
   z-index: 5;
+  left: -5%;
+  animation: appear-top-envelope 1s ease-in forwards;
 }
 @keyframes appear-envelope {
   0% {
@@ -154,6 +156,14 @@ iframe {
   }
   100% {
     transform: translateX(-50%) translateY(0);
+  }
+}
+@keyframes appear-top-envelope {
+  0% {
+    transform: translateY(100vh);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
 .start-animation .card-img {
@@ -227,7 +237,8 @@ iframe {
   animation: move-cta 2s ease-out 1s infinite forwards;
 }
 @keyframes move-cta {
-  0%,100%  {
+  0%,
+  100% {
     transform: scale(1);
   }
   50% {
@@ -254,7 +265,9 @@ iframe {
   }
 }
 @keyframes move-cards-translate-x {
-  0%,16%,100% {
+  0%,
+  16%,
+  100% {
     transform: translate(-50%, 0);
   }
   8% {
@@ -262,7 +275,9 @@ iframe {
   }
 }
 @keyframes move-cards {
-  0%,16%,100%  {
+  0%,
+  16%,
+  100% {
     transform: translate(0, 0);
   }
   8% {
@@ -294,5 +309,5 @@ iframe {
   .start-animation .main-container {
     width: 70%;
     height: 60%;
-}
+  }
 }

@@ -5,36 +5,35 @@ function addStartAnimation() {
 
 document.addEventListener("DOMContentLoaded", () => {
   addStartAnimation();
+  createSnowflake(30);
 });
 
 const snowContainer = document.querySelector(".snow-container");
 
-function createSnowflake() {
-  const snowflake = document.createElement("div");
-  snowflake.classList.add("snow");
+function createSnowflake(number) {
+  for (i = 0; i < number; i++) {
+    const snowflake = document.createElement("div");
+    snowflake.classList.add("snow");
 
-  // Случайное позиционирование и размеры снежинок
-  snowflake.style.left = `${Math.random() * 100}vw`;
+    // Случайное позиционирование и размеры снежинок
+    snowflake.style.left = `${Math.random() * 100}vw`;
 
-  const minSnowflakeDuration = 3;
-  const maxSnowflakeDuration = 4;
-  snowflake.style.animationDuration = `${
-    Math.random() * minSnowflakeDuration + maxSnowflakeDuration}s`;
+    const minSnowflakeDuration = 3;
+    const maxSnowflakeDuration = 4;
+    snowflake.style.animationDuration = `${
+      Math.random() * minSnowflakeDuration + maxSnowflakeDuration
+    }s`;
 
-  const minSnowflakeSize = 2;
-  const maxSnowflakeSize = 3;
-  snowflake.style.width = snowflake.style.height = `${
-    Math.random() * (maxSnowflakeSize - minSnowflakeSize) + minSnowflakeSize }px`;
+    const minSnowflakeSize = 2;
+    const maxSnowflakeSize = 3;
+    snowflake.style.width = snowflake.style.height = `${
+      Math.random() * (maxSnowflakeSize - minSnowflakeSize) + minSnowflakeSize
+    }px`;
 
-  snowContainer.appendChild(snowflake);
+    // Добавляем случайную задержку анимации для каждой снежинки
+    const animDelay = 5;
+    snowflake.style.animationDelay = `${Math.random() * animDelay}s`;
 
-  // Удаляем снежинку после завершения анимации
-  const timeRemoveSnowflake = 10000;
-  setTimeout(() => {
-    snowflake.remove();
-  }, timeRemoveSnowflake);
+    snowContainer.appendChild(snowflake);
+  }
 }
-
-// Создаем снежинку каждые 10 мс
-const timeCreateSnowflake = 100;
-setInterval(createSnowflake, timeCreateSnowflake);
