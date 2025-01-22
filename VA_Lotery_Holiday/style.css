@@ -1,0 +1,313 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+}
+iframe {
+  display: none;
+}
+.container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.start-animation .snow-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 5;
+}
+.start-animation .snow {
+  position: absolute;
+  top: -10px;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 0.7;
+  filter: blur(0.5px);
+  animation: snow-fall 9s linear infinite, appear-snow 9s linear infinite;
+}
+@keyframes appear-snow {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+}
+@keyframes snow-fall {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  25% {
+    transform: translateY(25vh) translateX(10px);
+  }
+  50% {
+    transform: translateY(50vh) translateX(-10px);
+  }
+  75% {
+    transform: translateY(75vh) translateX(15px);
+  }
+  100% {
+    transform: translateY(100vh) translateX(-15px);
+  }
+}
+.bg-container {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background-color: rgb(142, 30, 23);
+  background-size: cover;
+  object-fit: contain;
+}
+.bg-tree {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  background-image: url("https://i.loopme.me/html/Two_Tango_Holiday/assets/images/Tree_boarder.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.header-wrapper {
+  width: 100%;
+  height: 35%;
+  position: absolute;
+  z-index: 10;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+}
+.header-container {
+  width: 100%;
+  height: 100%;
+  z-index: 19;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.header-container :nth-child(1) {
+  width: 17%;
+  padding-bottom: 5%;
+  padding-top: 5%;
+}
+.header-container :nth-child(2) {
+  width: 55%;
+  padding-bottom: 3%;
+}
+.header-container :nth-child(3) {
+  width: 50%;
+}
+.start-animation .main-container {
+  width: 95%;
+  height: 62%;
+  position: absolute;
+  z-index: 5;
+  bottom: 3%;
+  animation: main-hidden 1s forwards 1s;
+}
+@keyframes main-hidden {
+  0% {
+    overflow: visible;
+  }
+  100% {
+    overflow: hidden;
+  }
+}
+.start-animation .top-envelope,
+.start-animation .envelope {
+  position: absolute;
+}
+.envelope {
+  width: 91%;
+  height: 49%;
+  top: 51%;
+  z-index: 12;
+  left: 50%;
+  transform: translateX(-50%) translateY(100vh);
+  animation: appear-envelope 1s ease-in forwards;
+}
+.top-envelope {
+  width: 108%;
+  height: 64%;
+  top: 15%;
+  z-index: 5;
+  left: -5%;
+  animation: appear-top-envelope 1s ease-in forwards;
+}
+@keyframes appear-envelope {
+  0% {
+    transform: translateX(-50%) translateY(100vh);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+}
+@keyframes appear-top-envelope {
+  0% {
+    transform: translateY(100vh);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.start-animation .card-img {
+  position: absolute;
+  opacity: 0;
+}
+.card1,
+.card4 {
+  transform: translateX(-50%);
+  animation: appear-card 1.8s ease-in forwards,
+    move-cards-translate-x 4s ease-in-out 6s infinite forwards;
+}
+.card2,
+.card3,
+.card5,
+.card6 {
+  animation: appear-card 1.8s ease-in forwards,
+    move-cards 4s ease-in-out 6s infinite forwards;
+}
+.card1,
+.card5 {
+  width: 45%;
+}
+.start-animation .card1 {
+  top: 49%;
+  left: 50%;
+  z-index: 11;
+  animation-delay: 0.2s;
+}
+.start-animation .card2 {
+  width: 52%;
+  right: 6%;
+  top: 33%;
+  z-index: 9;
+  animation-delay: 0.9s;
+}
+.start-animation .card3 {
+  width: 53%;
+  top: 32%;
+  left: 5%;
+  z-index: 10;
+  animation-delay: 0.6s;
+}
+.start-animation .card4 {
+  width: 38%;
+  top: 4%;
+  left: 50%;
+  z-index: 8;
+  animation-delay: 1.2s;
+}
+.start-animation .card5 {
+  right: 3%;
+  top: 10%;
+  z-index: 7;
+  animation-delay: 1.5s;
+}
+.start-animation .card6 {
+  width: 55%;
+  left: 2%;
+  top: 10%;
+  z-index: 6;
+  animation-delay: 1.8s;
+}
+.cta {
+  width: 42%;
+  position: absolute;
+  bottom: 1%;
+  left: 28%;
+  z-index: 15;
+  opacity: 1;
+  animation: move-cta 2s ease-out 1s infinite forwards;
+}
+@keyframes move-cta {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+.card-bottom {
+  width: 100%;
+  height: 3%;
+  position: absolute;
+  bottom: 0;
+  z-index: 20;
+}
+@keyframes appear-card {
+  0% {
+    top: 85%;
+  }
+  85% {
+    opacity: 0;
+  }
+  90%,
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes move-cards-translate-x {
+  0%,
+  16%,
+  100% {
+    transform: translate(-50%, 0);
+  }
+  8% {
+    transform: translate(-50%, -4%);
+  }
+}
+@keyframes move-cards {
+  0%,
+  16%,
+  100% {
+    transform: translate(0, 0);
+  }
+  8% {
+    transform: translate(0, -4%);
+  }
+}
+@media (min-width: 600px) {
+  .header-container :nth-child(1) {
+    width: 15%;
+  }
+  .header-container :nth-child(2) {
+    width: 50%;
+  }
+  .header-container :nth-child(3) {
+    width: 48%;
+  }
+  .start-animation .main-container {
+    width: 70%;
+    height: 60%;
+  }
+}
+@media (min-width: 850px) {
+  .header-container :nth-child(1) {
+    width: 14%;
+  }
+  .header-container :nth-child(2) {
+    width: 49%;
+  }
+  .start-animation .main-container {
+    width: 70%;
+    height: 60%;
+  }
+}
