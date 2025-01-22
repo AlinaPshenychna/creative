@@ -5,7 +5,7 @@ function addStartAnimation() {
 
 document.addEventListener("DOMContentLoaded", () => {
   addStartAnimation();
-  createSnowflake(30);
+  createSnowflake(100);
 });
 
 const snowContainer = document.querySelector(".snow-container");
