@@ -1,13 +1,19 @@
-* {
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Food Panda</title>
+  </head>
+  <style>
+    * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 iframe {
   display: none;
 }
-
 .LM_container {
   width: 100%;
   height: 100%;
@@ -49,15 +55,19 @@ iframe {
   width: 30px;
   height: 30px;
   margin: 3px 4px;
+  -webkit-animation: preloader 0.8s linear infinite alternate;
   animation: preloader 0.8s linear infinite alternate;
 }
 .LM_container .LM_loading_page .preloader span:nth-child(1) {
+  -webkit-animation-delay: -0.8s;
   animation-delay: -0.8s;
 }
 .LM_container .LM_loading_page .preloader span:nth-child(2) {
+  -webkit-animation-delay: -0.53333s;
   animation-delay: -0.53333s;
 }
 .LM_container .LM_loading_page .preloader span:nth-child(3) {
+  -webkit-animation-delay: -0.26666s;
   animation-delay: -0.26666s;
 }
 .LM_container .LM_landscape {
@@ -347,4 +357,122 @@ iframe {
   background-position: center center;
   background-size: 70px;
   z-index: 100000000;
-}/*# sourceMappingURL=styles.css.map */
+}
+  </style>
+  <body>
+    <div class="LM_container">
+      <!-- <div class="LM_loading_page">
+        <img
+          src="https://i.loopme.me/html/APAC-APEX-WOG_NEA_Recycle_2024-SG-Q3_24/assets/general/loading_page.png"
+          alt="loading page"
+        />
+        <div class="preloader">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <div class="LM_landscape"></div> -->
+      <div class="LM_content">
+        <div class="video-container">
+          <video playsinline="false" class="video" autoplay muted="true">
+            <source
+              type="video/mp4"
+              src="https://i.loopme.me/html/FoodPanda_PauPau_q1_2023/assets/project_images/video.mp4"
+            />
+            <source
+              type="video/mp4"
+              src="https://i.loopme.me/html/FoodPanda_PauPau_q1_2023/assets/project_images/video.webm"
+            />
+          </video>
+          <button class="sound-on sound-off"></button>
+          <img
+            class="screenshot hidden"
+            src="https://i.loopme.me/html/FoodPanda_PauPau_q1_2023/assets/project_images/poster.png"
+            alt="screenshot"
+          />
+        </div>
+        <div class="main-container">
+          <img
+            class="logo"
+            src="https://i.loopme.me/html/FoodPanda_PauPau_q1_2023/assets/project_images/logo.png"
+            alt="logo"
+          />
+          <img
+            class="panda"
+            src="https://i.loopme.me/html/FoodPanda_PauPau_q1_2023/assets/project_images/pandas.png"
+            alt="panda"
+          />
+          <img
+            class="bag"
+            src="https://i.loopme.me/html/FoodPanda_PauPau_q1_2023/assets/project_images/bag.png"
+            alt="bag"
+          />
+          <img
+            class="describe"
+            src="https://i.loopme.me/html/FoodPanda_PauPau_q1_2023/assets/project_images/describe.png"
+            alt="describe"
+          />
+          <img
+            class="cta"
+            src="https://i.loopme.me/html/FoodPanda_PauPau_q1_2023/assets/project_images/cta.png"
+            alt="cta"
+          />
+          <img
+            class="leave-bottom"
+            src="https://i.loopme.me/html/FoodPanda_PauPau_q1_2023/assets/project_images/leaves_bg.png"
+            alt="leave-bottom"
+          />
+          <img
+            class="right-leave"
+            src="https://i.loopme.me/html/FoodPanda_PauPau_q1_2023/assets/project_images/leaves_1.png"
+            alt="leave-right"
+          />
+          <img class="left-leave" src="https://i.loopme.me/html/FoodPanda_PauPau_q1_2023/assets/project_images/leaves_3.png" alt="" />
+          <img class="bottom-leave" src="https://i.loopme.me/html/FoodPanda_PauPau_q1_2023/assets/project_images/leaves_2.png" alt="" />
+        </div>
+        <div class="click-areas">
+          <div class="logo-click-area"></div>
+          <div class="bg-click-area"></div>
+          <div class="cta-click-area"></div>
+        </div>
+      </div>
+      <div id="ad-choice-container">
+        <div id="ad-choice-icon"></div>
+        <div id="ad-choice-click">
+          <a
+            id="ad-choice-link"
+            href="https://info.evidon.com/more_info/78051"
+            target="_blank"
+          ></a>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+  const lmContent = document.querySelector(".LM_content");
+  lmContent.classList.add("animation");
+
+  const video = document.querySelector(".video");
+  const screenshot = document.querySelector(".screenshot");
+  const btn = document.querySelector(".sound-on");
+
+  video.addEventListener("ended", () => {
+    video.classList.add("hidden");
+    screenshot.classList.remove("hidden");
+  });
+
+  screenshot.addEventListener("click", () => {
+    screenshot.classList.add("hidden");
+    video.classList.remove("hidden");
+    video.play();
+  });
+  btn.addEventListener("click", () => {
+    video.muted = !video.muted;
+    btn.classList.toggle("sound-off");
+  });
+});
+
+    </script>
+  </body>
+</html>
