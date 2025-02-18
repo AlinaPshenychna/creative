@@ -14,7 +14,6 @@ iframe {
   left: 50%;
   top: 50%;
   transform: translateX(-50%) translateY(-50%);
-  -webkit-transform: translateX(-50%) translateY(-50%);
   background: #fff;
 
   .LM_loading_page {
@@ -53,12 +52,12 @@ iframe {
           animation-delay: -0.8s;
         }
         &:nth-child(2) {
-          -webkit-animation-delay: -0.53333s;
-          animation-delay: -0.53333s;
+          -webkit-animation-delay: -0.5s;
+          animation-delay: -0.5s;
         }
         &:nth-child(3) {
-          -webkit-animation-delay: -0.26666s;
-          animation-delay: -0.26666s;
+          -webkit-animation-delay: -0.2s;
+          animation-delay: -0.2s;
         }
       }
     }
@@ -94,11 +93,9 @@ iframe {
   aspect-ratio: 16/9;
   .screenshot {
     width: 100%;
-    aspect-ratio: 16/9;
   }
   .video {
     width: 100%;
-    aspect-ratio: 16/9;
     &.hidden {
       display: none;
     }
@@ -144,7 +141,6 @@ iframe {
       height: 100%;
     }
     @media (min-aspect-ratio: 670 / 1000) and (max-aspect-ratio: 900 / 1000) {
-      height: 100%;
       margin-top: 5%;
     }
   }
@@ -214,7 +210,6 @@ iframe {
       width: 35%;
     }
     @media (min-aspect-ratio: 580 / 1000) and (max-aspect-ratio: 900 / 1000) {
-      width: 35%;
       top: 65%;
     }
   }
@@ -228,7 +223,6 @@ iframe {
       cta-scale 3s linear infinite;
     @keyframes cta-scale {
       0%,
-      10%,
       35%,
       65%,
       100% {
