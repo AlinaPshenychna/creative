@@ -24,7 +24,7 @@
 }
 .hidden {
   display: none;
-} 
+}
 .sound-on {
   width: 30px;
   height: 30px;
@@ -37,7 +37,7 @@
   background-size: contain;
   background-image: url(./img/soundOn.png);
 }
-.sound-off{
+.sound-off {
   background-image: url(./img/soundOff.png);
 }
 .main-content-container {
@@ -110,7 +110,7 @@
     scale: 1;
   }
 }
-@keyframes move-to-default{
+@keyframes move-to-default {
   to {
     transform: translate(0);
   }
