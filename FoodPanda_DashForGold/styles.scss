@@ -1,0 +1,726 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+iframe {
+  display: none;
+}
+.LM_container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 10000;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  overflow: hidden;
+  .LM_loading_page {
+    position: absolute;
+    z-index: 100000;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    img {
+      width: 100vw;
+      height: 100vh;
+    }
+    .preloader {
+      display: inline-block;
+      font-size: 0;
+      padding: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateZ(0) translateX(-50%) translateY(-50%);
+      -webkit-transform: translateZ(0) translateX(-50%) translateY(-50%);
+      span {
+        vertical-align: middle;
+        border-radius: 100%;
+        background: #f8f8f8;
+        border: 1px solid #707070;
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        margin: 3px 4px;
+        animation: preloader 0.8s linear infinite alternate;
+        &:nth-child(1) {
+          -webkit-animation-delay: -0.8s;
+          animation-delay: -0.8s;
+        }
+        &:nth-child(2) {
+          -webkit-animation-delay: -0.5s;
+          animation-delay: -0.5s;
+        }
+        &:nth-child(3) {
+          -webkit-animation-delay: -0.2s;
+          animation-delay: -0.2s;
+        }
+      }
+    }
+  }
+  .LM_landscape {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: #ffffff url(https://i.loopme.me/html/general/not_available.png)
+      no-repeat;
+    background-position: center center;
+    background-size: 70px;
+    z-index: 100000000;
+  }
+  #ad-choice-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 77px;
+    height: 15px;
+    z-index: 1000;
+    border-radius: 0 0 8px 0;
+    overflow: hidden;
+
+    #ad-choice-icon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 19px;
+      height: 100%;
+      background: #ffe url(https://i.loopme.me/html/adChoice/img/icon.png)
+        center / cover no-repeat;
+      border-radius: 0 0 8px 0;
+    }
+    #ad-choice-click {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 77px;
+      height: 100%;
+      transform: translate(-77px, 0);
+      transition: 0.2s;
+      background: #e3c6c0 url(https://i.loopme.me/html/adChoice/img/click.png)
+        no-repeat left center;
+      background-size: contain;
+      #ad-choice-link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        text-decoration: none;
+      }
+    }
+  }
+  .LM_content {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("https://i.loopme.me/html/Foodpanda_Dash_For_Gold/assets/Imaga_assets/bgd.png");
+    background-size: cover;
+    background-position: bottom;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    overflow: hidden;
+    .top-container {
+      width: 100%;
+      height: 45%;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 1;
+      overflow: hidden;
+      background-image: url("https://i.loopme.me/html/Foodpanda_Dash_For_Gold/assets/Image_assets/header.png?v=5");
+      background-size: cover;
+      background-position: top;
+      img {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+        z-index: 10;
+      }
+      .logo {
+        width: 32%;
+        margin-top: 7%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: scale-obj 1.5s ease-out forwards;
+      }
+      @keyframes scale-obj {
+        0% {
+          transform: translate(-50%) scale(0);
+        }
+        80% {
+          transform: translate(-50%) scale(1.1);
+        }
+        100% {
+          transform: translate(-50%) scale(1);
+        }
+      }
+      img.dash,
+      img.for,
+      img.gold {
+        width: 55%;
+        top: 20%;
+        animation: scale-obj 1.5s ease-out 0.2s forwards;
+      }
+      img.dash-2,
+      img.dash-3,
+      img.dash-4,
+      img.dash-5,
+      img.dash-6,
+      img.for-2,
+      img.for-3,
+      img.for-4,
+      img.for-5,
+      img.for-6,
+      img.gold-2,
+      img.gold-3,
+      img.gold-4,
+      img.gold-5,
+      img.gold-6 {
+        animation: blink-title 5s alternate 1.7s infinite;
+      }
+      img.dash-2,
+      img.for-2,
+      img.gold-2 {
+        opacity: 0;
+        animation-delay: 1.8s;
+      }
+      img.dash-3,
+      img.for-3,
+      img.gold-3 {
+        opacity: 0;
+        animation-delay: 2.3s;
+      }
+      img.dash-4,
+      img.for-4,
+      img.gold-4 {
+        opacity: 0;
+        animation-delay: 2.8s;
+      }
+      img.dash-5,
+      img.for-5,
+      img.gold-5 {
+        opacity: 0;
+        animation-delay: 3.3s;
+      }
+      img.dash-6,
+      img.for-6,
+      img.gold-6 {
+        opacity: 0;
+        animation-delay: 3.8s;
+      }
+      @keyframes blink-title {
+        0% {
+          opacity: 0;
+        }
+        15% {
+          opacity: 1;
+        }
+        40% {
+          opacity: 0;
+        }
+        60% {
+          opacity: 1;
+        }
+        80% {
+          opacity: 0;
+        }
+        95% {
+          opacity: 1;
+        }
+      }
+      .sparkle {
+        width: 62%;
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        left: 50%;
+        top: 17%;
+        opacity: 0;
+      }
+      img.sparkle-1,
+      img.sparkle-2,
+      img.sparkle-3,
+      img.sparkle-4,
+      img.sparkle-5 {
+        animation: appear-sparkle 10s alternate 0.5s infinite;
+      }
+      img.sparkle-2 {
+        animation-delay: 0.3s;
+      }
+      img.sparkle-3 {
+        animation-delay: 0.6s;
+      }
+      img.sparkle-4 {
+        animation-delay: 0.9s;
+      }
+      img.sparkle-5 {
+        animation-delay: 1.2s;
+      }
+      @keyframes appear-sparkle {
+        0% {
+          opacity: 0;
+        }
+        15% {
+          opacity: 0;
+        }
+        20% {
+          opacity: 1;
+        }
+        35% {
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+        60% {
+          opacity: 0;
+        }
+        90% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+      .title-logo,
+      .title-with {
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        top: 15%;
+        width: 60%;
+        opacity: 0;
+        animation: appear-dots 2s ease-out forwards;
+      }
+      .title-with {
+        animation-delay: 1s;
+      }
+      .title-logo {
+        animation-delay: 2s;
+      }
+      .dots {
+        img {
+          width: 60%;
+          position: absolute;
+          top: 18%;
+          left: 50%;
+          opacity: 0;
+        }
+        img:nth-child(1) {
+          top: 18%;
+          left: 50%;
+        }
+      }
+    }
+    @keyframes appear-dots {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    .bottom-container {
+      width: 100%;
+      height: 55%;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .panda-chest-container {
+        width: 100%;
+        height: 80%;
+        position: absolute;
+        top: 0;
+        .top-text {
+          width: 80%;
+          opacity: 0;
+          animation: appear-dots 2s ease-out 3s forwards;
+        }
+        .panda-container {
+          width: 50%;
+          position: relative;
+          top: 4%;
+          left: 0;
+          animation: appear-panda 0.4s linear 0.2s forwards;
+          aspect-ratio: 4/5;
+          z-index: 10;
+          transform: translate(-120%);
+          .panda-body {
+            width: 140%;
+            position: absolute;
+            left: -26%;
+            top: -7%;
+            z-index: 10;
+          }
+          .panda-arm {
+            width: 130%;
+            position: absolute;
+            left: -20%;
+            top: -1%;
+            z-index: 8;
+            animation: move-glass 2s alternate 1.1s infinite;
+          }
+          .panda-glass {
+            width: 120%;
+            position: absolute;
+            left: -9%;
+            top: 3%;
+            z-index: 18;
+            animation: move-glass 1.5s alternate 1.4s infinite;
+          }
+          .panda-hand {
+            width: 126%;
+            position: absolute;
+            left: -16%;
+            top: -1%;
+            z-index: 20;
+          }
+          .panda-head {
+            width: 110%;
+            position: absolute;
+            left: -7%;
+            top: 10%;
+            z-index: 15;
+            animation: move-glass 2s alternate 1.2s infinite;
+          }
+          .panda-mouth {
+            width: 100%;
+            position: absolute;
+            left: 0;
+            top: 13%;
+            z-index: 17;
+          }
+          @keyframes appear-panda {
+            0% {
+              opacity: 0;
+              transform: translate(-120%) scale(0.8);
+            }
+            20% {
+              opacity: 1;
+            }
+            100% {
+              opacity: 1;
+              transform: translate(0) scale(1);
+            }
+          }
+          @keyframes move-glass {
+            0% {
+              opacity: 1;
+              transform: rotate(0);
+            }
+            100% {
+              opacity: 1;
+              transform: rotate(5deg);
+            }
+          }
+        }
+        .panda-sparkle {
+          width: 100%;
+          position: absolute;
+          left: -14%;
+          top: 13%;
+          z-index: 0;
+          opacity: 0;
+          transform: translate(-70%);
+          animation: appear-panda 0.4s ease-in 0.2s forwards,
+            flesh-sparkle 2s alternate 1.4s infinite;
+          @keyframes flesh-sparkle {
+            0% {
+              transform: translate(0);
+              opacity: 0.7;
+            }
+            50% {
+              transform: translate(-5%);
+              opacity: 1;
+            }
+            100% {
+              transform: translate(0);
+              opacity: 0.7;
+            }
+          }
+        }
+        .chest-container {
+          .chest {
+            width: 70%;
+            position: absolute;
+            right: -5%;
+            top: 10%;
+          }
+          .coins {
+            width: 15%;
+            position: absolute;
+            top: 70%;
+            left: 37%;
+          }
+          .chest-sparkle,
+          .chest-sparkle-3 {
+            width: 70%;
+            position: absolute;
+            opacity: 0.3;
+            animation: chest-sparkle 4s ease-out 2s infinite;
+          }
+          .chest-sparkle {
+            right: 7%;
+            top: 13%;
+          }
+          .chest-sparkle-3 {
+            right: 0;
+            top: -10%;
+            animation-delay: 0.5s;
+          }
+          @keyframes chest-sparkle {
+            0% {
+              opacity: 0;
+            }
+            20% {
+              opacity: 0.3;
+            }
+            40% {
+              opacity: 0.6;
+            }
+            60% {
+              opacity: 0.3;
+            }
+            80% {
+              opacity: 0.6;
+            }
+            100% {
+              opacity: 0.3;
+            }
+          }
+        }
+      }
+      .fruits {
+        .cabbage {
+          width: 30%;
+          position: absolute;
+          top: 79%;
+          right: -3%;
+          z-index: 8;
+          opacity: 0;
+          transform: translateY(-865%);
+          animation: fell-fruit 0.3s ease-in 0.7s forwards;
+        }
+        .cabbage-shadow {
+          width: 30%;
+          position: absolute;
+          top: 80%;
+          right: -3%;
+          z-index: 5;
+          opacity: 0;
+          animation: appear-dots 0.5s  ease-out 0.8s forwards;
+        }
+        .carrot {
+          width: 33%;
+          position: absolute;
+          top: 71%;
+          right: 4%;
+          z-index: 8;
+          transform: rotate(-7deg);
+          opacity: 0;
+          animation: fell-fruit-carrot 0.3s ease-in 0.8s forwards;
+          @keyframes fell-fruit-carrot {
+            0% {
+              transform: rotate(-7deg);
+              opacity: 1;
+              top: -120%;
+            }
+            100% {
+              transform: rotate(-360deg);
+              opacity: 1;
+              top: 71%;
+            }
+          }
+        }
+        .carrot-shadow {
+          width: 33%;
+          position: absolute;
+          top: 72%;
+          right: 4%;
+          z-index: 5;
+          transform: rotate(-7deg);
+          opacity: 0;
+          animation: appear-dots 0.5s  ease-out 1s forwards;
+        }
+        .grapes {
+          width: 40%;
+          position: absolute;
+          top: 79%;
+          left: -4%;
+          z-index: 15;
+          opacity: 0;
+          transform: translateY(-865%) rotate(-10deg);
+          animation: fell-fruit 0.3s ease-in 0.6s forwards;
+        }
+        .grapes-shadow {
+          width: 40%;
+          position: absolute;
+          top: 79%;
+          left: -4%;
+          z-index: 5;
+          transform: rotate(-10deg);
+          opacity: 0;
+          animation: appear-dots 0.5s  ease-out 0.8s forwards;
+        }
+        .orange {
+          width: 28%;
+          position: absolute;
+          top: 77%;
+          right: 26%;
+          z-index: 8;
+          opacity: 0;
+          transform: translateY(-865%);
+          animation: fell-fruit 0.3s ease-in 1s forwards;
+        }
+        .orange-shadow {
+          width: 28%;
+          position: absolute;
+          top: 78%;
+          right: 26%;
+          z-index: 5;
+          opacity: 0;
+          animation: appear-dots 0.5s  ease-out 1.2s forwards;
+        }
+        @keyframes fell-fruit {
+          0% {
+            transform: translateY(-865%) rotate(-10deg);
+            opacity: 1;
+          }
+          100% {
+            transform: translateY(0) rotate(-360deg);
+            opacity: 1;
+          }
+        }
+        .apple {
+          width: 12%;
+          position: absolute;
+          top: -130%;
+          left: 1%;
+          transform: rotate(45deg);
+          z-index: 20;
+          animation: fell-apple 1s ease-in 1.9s forwards;
+        }
+        @keyframes fell-apple {
+          0% {
+            top: -130%;
+          }
+          100% {
+            top: 40%;
+          }
+        }
+        .leaf-top {
+          width: 40%;
+        }
+        .leaf-btm {
+          width: 40%;
+        }
+      }
+      .cta-container {
+        width: 100%;
+        height: 20%;
+        position: absolute;
+        bottom: 0;
+        .cta-btn {
+          width: 60%;
+          position: absolute;
+          left: 50%;
+          transform: translate(-50%, 0);
+          bottom: 39%;
+          z-index: 10;
+          animation: appear-cta 1s ease-out forwards,
+            jump-cta 5s ease-in-out 2.2s infinite;
+        }
+        @keyframes jump-cta {
+          0% {
+            transform: translate(-50%, 0);
+          }
+          10% {
+            transform: translate(-50%, -10%);
+          }
+          20% {
+            transform: translate(-50%, 0);
+          }
+        }
+        .cta-shadow {
+          width: 60%;
+          position: absolute;
+          left: 50%;
+          transform: translate(-50%);
+          bottom: 37%;
+          z-index: 5;
+          opacity: 0;
+          animation: appear-dots 0.7s ease-out 1s forwards;
+        }
+        .cta-text {
+          img {
+            width: 60%;
+            position: absolute;
+            bottom: 40%;
+            left: 50%;
+            transform: translate(-50%, 0);
+            z-index: 15;
+            opacity: 0;
+          }
+          .learn {
+            animation: appear-dots 1s ease-out 1.7s forwards,
+              jump-cta 5s ease-in-out 2.2s infinite;
+          }
+          .more {
+            animation: appear-dots 1s ease-out 1.9s forwards,
+              jump-cta 5s ease-in-out 2.2s infinite;
+          }
+        }
+        @keyframes appear-cta {
+          0% {
+            transform: translate(-50%) scale(0);
+          }
+          80% {
+            transform: translate(-50%) scale(1.1);
+          }
+          100% {
+            transform: translate(-50%) scale(1);
+          }
+        }
+      }
+      .tnc {
+        width: 18%;
+        position: absolute;
+        bottom: 2%;
+        left: 50%;
+        transform: translate(-50%);
+      }
+    }
+    .logo-click{
+      width: 100%;
+      height: 10%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 50;
+    }
+    .bg-click{
+      width: 100%;
+      height:75%;
+      position: absolute;
+      top: 10%;
+      left: 0;
+      z-index: 50;
+    }
+    .cta-click{
+      width: 100%;
+      height: 15%;
+      position: absolute;
+      top: 85%;
+      left: 0;
+      z-index: 50;
+    }
+  }
+}
