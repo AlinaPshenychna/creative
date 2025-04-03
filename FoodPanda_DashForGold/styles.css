@@ -37,7 +37,6 @@ iframe {
   top: 50%;
   left: 50%;
   transform: translateZ(0) translateX(-50%) translateY(-50%);
-  -webkit-transform: translateZ(0) translateX(-50%) translateY(-50%);
 }
 .LM_container .LM_loading_page .preloader span {
   vertical-align: middle;
@@ -167,51 +166,39 @@ iframe {
   animation: scale-obj 1.5s ease-out 0.2s forwards;
 }
 .LM_container .LM_content .top-container img.dash-2,
-.LM_container .LM_content .top-container img.dash-3,
-.LM_container .LM_content .top-container img.dash-4,
-.LM_container .LM_content .top-container img.dash-5,
-.LM_container .LM_content .top-container img.dash-6,
-.LM_container .LM_content .top-container img.for-2,
-.LM_container .LM_content .top-container img.for-3,
-.LM_container .LM_content .top-container img.for-4,
-.LM_container .LM_content .top-container img.for-5,
-.LM_container .LM_content .top-container img.for-6,
-.LM_container .LM_content .top-container img.gold-2,
-.LM_container .LM_content .top-container img.gold-3,
-.LM_container .LM_content .top-container img.gold-4,
-.LM_container .LM_content .top-container img.gold-5,
-.LM_container .LM_content .top-container img.gold-6 {
-  animation: blink-title 5s alternate 1.7s infinite;
-}
-.LM_container .LM_content .top-container img.dash-2,
 .LM_container .LM_content .top-container img.for-2,
 .LM_container .LM_content .top-container img.gold-2 {
   opacity: 0;
-  animation-delay: 1.8s;
+  animation: blink-title 5s alternate 1.7s infinite;
+  animation-delay: 1.3s;
 }
 .LM_container .LM_content .top-container img.dash-3,
 .LM_container .LM_content .top-container img.for-3,
 .LM_container .LM_content .top-container img.gold-3 {
   opacity: 0;
-  animation-delay: 2.3s;
+  animation: blink-title 5s alternate 1.7s infinite;
+  animation-delay: 1.8s;
 }
 .LM_container .LM_content .top-container img.dash-4,
 .LM_container .LM_content .top-container img.for-4,
 .LM_container .LM_content .top-container img.gold-4 {
   opacity: 0;
-  animation-delay: 2.8s;
+  animation: blink-title 5s alternate 1.7s infinite;
+  animation-delay: 2.3s;
 }
 .LM_container .LM_content .top-container img.dash-5,
 .LM_container .LM_content .top-container img.for-5,
 .LM_container .LM_content .top-container img.gold-5 {
   opacity: 0;
-  animation-delay: 3.3s;
+  animation: blink-title 5s alternate 1.7s infinite;
+  animation-delay: 2.8s;
 }
 .LM_container .LM_content .top-container img.dash-6,
 .LM_container .LM_content .top-container img.for-6,
 .LM_container .LM_content .top-container img.gold-6 {
   opacity: 0;
-  animation-delay: 3.8s;
+  animation: blink-title 5s alternate 1.7s infinite;
+  animation-delay: 3.3s;
 }
 @keyframes blink-title {
   0% {
@@ -309,10 +296,48 @@ iframe {
   top: 18%;
   left: 50%;
   opacity: 0;
+  animation: appear-dots 2s ease-out 2s forwards;
+}
+.LM_container .LM_content .top-container .dots img:nth-child(1) {
+  animation-delay: 3.2s;
+}
+.LM_container .LM_content .top-container .dots img:nth-child(2) {
+  animation-delay: 3s;
+}
+.LM_container .LM_content .top-container .dots img:nth-child(3) {
+  animation-delay: 2.8s;
+}
+.LM_container .LM_content .top-container .dots img:nth-child(4) {
+  animation-delay: 2.6s;
+}
+.LM_container .LM_content .top-container .dots img:nth-child(5) {
+  animation-delay: 2.4s;
+}
+.LM_container .LM_content .top-container .dots img:nth-child(6) {
+  animation-delay: 2.2s;
+}
+.LM_container .LM_content .top-container .dots img:nth-child(7) {
+  animation-delay: 2s;
+}
+.LM_container .LM_content .top-container .dots img:nth-child(8) {
+  animation-delay: 1.8s;
+}
+.LM_container .LM_content .top-container .dots img:nth-child(9) {
+  animation-delay: 1.6s;
+}
+.LM_container .LM_content .top-container .dots img:nth-child(10) {
+  animation-delay: 1.4s;
+}
+.LM_container .LM_content .top-container .dots img:nth-child(11) {
+  animation-delay: 1.2s;
+}
+.LM_container .LM_content .top-container .dots img:nth-child(12) {
+  animation-delay: 1s;
 }
 .LM_container .LM_content .top-container .dots img:nth-child(1) {
   top: 18%;
   left: 50%;
+  opacity: 0;
 }
 @keyframes appear-dots {
   0% {
@@ -678,8 +703,8 @@ iframe {
 }
 .LM_container .LM_content .bottom-container .tnc {
   width: 18%;
-  position: absolute;
   bottom: 2%;
+  position: absolute;
   left: 50%;
   transform: translate(-50%);
 }
@@ -706,4 +731,6 @@ iframe {
   top: 85%;
   left: 0;
   z-index: 50;
-}/*# sourceMappingURL=styles.css.map */
+}
+
+/*# sourceMappingURL=styles.css.map */

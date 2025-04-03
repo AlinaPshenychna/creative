@@ -33,7 +33,6 @@ iframe {
       top: 50%;
       left: 50%;
       transform: translateZ(0) translateX(-50%) translateY(-50%);
-      -webkit-transform: translateZ(0) translateX(-50%) translateY(-50%);
       span {
         vertical-align: middle;
         border-radius: 100%;
@@ -45,15 +44,12 @@ iframe {
         margin: 3px 4px;
         animation: preloader 0.8s linear infinite alternate;
         &:nth-child(1) {
-          -webkit-animation-delay: -0.8s;
           animation-delay: -0.8s;
         }
         &:nth-child(2) {
-          -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
         }
         &:nth-child(3) {
-          -webkit-animation-delay: -0.2s;
           animation-delay: -0.2s;
         }
       }
@@ -114,6 +110,11 @@ iframe {
       }
     }
   }
+  @mixin toCenter{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+  }
   .LM_content {
     width: 100vw;
     height: 100vh;
@@ -137,9 +138,7 @@ iframe {
       background-size: cover;
       background-position: top;
       img {
-        position: absolute;
-        left: 50%;
-        transform: translate(-50%);
+@include toCenter;
         z-index: 10;
       }
       .logo {
@@ -168,52 +167,14 @@ iframe {
         top: 20%;
         animation: scale-obj 1.5s ease-out 0.2s forwards;
       }
-      img.dash-2,
-      img.dash-3,
-      img.dash-4,
-      img.dash-5,
-      img.dash-6,
-      img.for-2,
-      img.for-3,
-      img.for-4,
-      img.for-5,
-      img.for-6,
-      img.gold-2,
-      img.gold-3,
-      img.gold-4,
-      img.gold-5,
-      img.gold-6 {
-        animation: blink-title 5s alternate 1.7s infinite;
-      }
-      img.dash-2,
-      img.for-2,
-      img.gold-2 {
-        opacity: 0;
-        animation-delay: 1.8s;
-      }
-      img.dash-3,
-      img.for-3,
-      img.gold-3 {
-        opacity: 0;
-        animation-delay: 2.3s;
-      }
-      img.dash-4,
-      img.for-4,
-      img.gold-4 {
-        opacity: 0;
-        animation-delay: 2.8s;
-      }
-      img.dash-5,
-      img.for-5,
-      img.gold-5 {
-        opacity: 0;
-        animation-delay: 3.3s;
-      }
-      img.dash-6,
-      img.for-6,
-      img.gold-6 {
-        opacity: 0;
-        animation-delay: 3.8s;
+      @for $i from 2 through 6 {
+        img.dash-#{$i},
+        img.for-#{$i},
+        img.gold-#{$i} {
+          opacity: 0;
+          animation: blink-title 5s alternate 1.7s infinite;
+          animation-delay: #{1.3s + ($i - 2) * 0.5s}; 
+        }
       }
       @keyframes blink-title {
         0% {
@@ -312,10 +273,17 @@ iframe {
           top: 18%;
           left: 50%;
           opacity: 0;
+          animation: appear-dots 2s ease-out 2s forwards;
+        }
+        @for $i from 1 through 12 { 
+          img:nth-child(#{$i}) {
+            animation-delay: #{1s + (12 - $i) * 0.2s};
+          }
         }
         img:nth-child(1) {
           top: 18%;
           left: 50%;
+          opacity: 0;
         }
       }
     }
@@ -651,9 +619,7 @@ iframe {
         }
         .cta-shadow {
           width: 60%;
-          position: absolute;
-          left: 50%;
-          transform: translate(-50%);
+@include toCenter;
           bottom: 37%;
           z-index: 5;
           opacity: 0;
@@ -692,10 +658,8 @@ iframe {
       }
       .tnc {
         width: 18%;
-        position: absolute;
         bottom: 2%;
-        left: 50%;
-        transform: translate(-50%);
+        @include toCenter;
       }
     }
     .logo-click{
