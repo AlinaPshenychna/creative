@@ -201,22 +201,10 @@ iframe {
   animation-delay: 3.3s;
 }
 @keyframes blink-title {
-  0% {
+  0%, 40%, 80% {
     opacity: 0;
   }
-  15% {
-    opacity: 1;
-  }
-  40% {
-    opacity: 0;
-  }
-  60% {
-    opacity: 1;
-  }
-  80% {
-    opacity: 0;
-  }
-  95% {
+  15%, 60%, 95% {
     opacity: 1;
   }
 }
@@ -249,29 +237,11 @@ iframe {
   animation-delay: 1.2s;
 }
 @keyframes appear-sparkle {
-  0% {
+  0%, 15%, 35%, 60%, 100% {
     opacity: 0;
   }
-  15% {
-    opacity: 0;
-  }
-  20% {
+  20%, 50%, 90% {
     opacity: 1;
-  }
-  35% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  60% {
-    opacity: 0;
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
   }
 }
 .LM_container .LM_content .top-container .title-logo,
@@ -455,17 +425,13 @@ iframe {
   animation: appear-panda 0.4s ease-in 0.2s forwards, flesh-sparkle 2s alternate 1.4s infinite;
 }
 @keyframes flesh-sparkle {
-  0% {
+  0%, 100% {
     transform: translate(0);
     opacity: 0.7;
   }
   50% {
     transform: translate(-5%);
     opacity: 1;
-  }
-  100% {
-    transform: translate(0);
-    opacity: 0.7;
   }
 }
 .LM_container .LM_content .bottom-container .panda-chest-container .chest-container .chest {
@@ -500,20 +466,11 @@ iframe {
   0% {
     opacity: 0;
   }
-  20% {
+  20%, 60%, 100% {
     opacity: 0.3;
   }
-  40% {
+  40%, 80% {
     opacity: 0.6;
-  }
-  60% {
-    opacity: 0.3;
-  }
-  80% {
-    opacity: 0.6;
-  }
-  100% {
-    opacity: 0.3;
   }
 }
 .LM_container .LM_content .bottom-container .fruits .cabbage {
@@ -655,14 +612,11 @@ iframe {
   animation: appear-cta 1s ease-out forwards, jump-cta 5s ease-in-out 2.2s infinite;
 }
 @keyframes jump-cta {
-  0% {
+  0%, 20% {
     transform: translate(-50%, 0);
   }
   10% {
     transform: translate(-50%, -10%);
-  }
-  20% {
-    transform: translate(-50%, 0);
   }
 }
 .LM_container .LM_content .bottom-container .cta-container .cta-shadow {

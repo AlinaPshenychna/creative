@@ -6,6 +6,23 @@
 iframe {
   display: none;
 }
+@mixin topLeft {
+  top: 0;
+  left: 0;
+}
+@mixin toCenter {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+}
+@mixin toFlex {
+  display: flex;
+  justify-content: center;
+}
+@mixin topLeft {
+  top: 0;
+  left: 0;
+}
 .LM_container {
   width: 100%;
   height: 100%;
@@ -70,8 +87,7 @@ iframe {
   }
   #ad-choice-container {
     position: absolute;
-    top: 0;
-    left: 0;
+    @include topLeft;
     width: 77px;
     height: 15px;
     z-index: 1000;
@@ -80,8 +96,7 @@ iframe {
 
     #ad-choice-icon {
       position: absolute;
-      top: 0;
-      left: 0;
+      @include topLeft;
       width: 19px;
       height: 100%;
       background: #ffe url(https://i.loopme.me/html/adChoice/img/icon.png)
@@ -90,8 +105,7 @@ iframe {
     }
     #ad-choice-click {
       position: absolute;
-      top: 0;
-      left: 0;
+      @include topLeft;
       width: 77px;
       height: 100%;
       transform: translate(-77px, 0);
@@ -101,19 +115,13 @@ iframe {
       background-size: contain;
       #ad-choice-link {
         position: absolute;
-        top: 0;
-        left: 0;
+        @include topLeft;
         width: 100%;
         height: 100%;
         display: block;
         text-decoration: none;
       }
     }
-  }
-  @mixin toCenter{
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
   }
   .LM_content {
     width: 100vw;
@@ -138,14 +146,13 @@ iframe {
       background-size: cover;
       background-position: top;
       img {
-@include toCenter;
+        @include toCenter;
         z-index: 10;
       }
       .logo {
         width: 32%;
         margin-top: 7%;
-        display: flex;
-        justify-content: center;
+        @include toFlex;
         align-items: center;
         animation: scale-obj 1.5s ease-out forwards;
       }
@@ -173,33 +180,24 @@ iframe {
         img.gold-#{$i} {
           opacity: 0;
           animation: blink-title 5s alternate 1.7s infinite;
-          animation-delay: #{1.3s + ($i - 2) * 0.5s}; 
+          animation-delay: #{1.3s + ($i - 2) * 0.5s};
         }
       }
       @keyframes blink-title {
-        0% {
-          opacity: 0;
-        }
-        15% {
-          opacity: 1;
-        }
-        40% {
-          opacity: 0;
-        }
-        60% {
-          opacity: 1;
-        }
+        0%,
+        40%,
         80% {
           opacity: 0;
         }
+        15%,
+        60%,
         95% {
           opacity: 1;
         }
       }
       .sparkle {
         width: 62%;
-        display: flex;
-        justify-content: center;
+        @include toFlex;
         position: absolute;
         left: 50%;
         top: 17%;
@@ -225,35 +223,22 @@ iframe {
         animation-delay: 1.2s;
       }
       @keyframes appear-sparkle {
-        0% {
-          opacity: 0;
-        }
-        15% {
-          opacity: 0;
-        }
-        20% {
-          opacity: 1;
-        }
-        35% {
-          opacity: 0;
-        }
-        50% {
-          opacity: 1;
-        }
-        60% {
-          opacity: 0;
-        }
-        90% {
-          opacity: 1;
-        }
+        0%,
+        15%,
+        35%,
+        60%,
         100% {
           opacity: 0;
+        }
+        20%,
+        50%,
+        90% {
+          opacity: 1;
         }
       }
       .title-logo,
       .title-with {
-        display: flex;
-        justify-content: center;
+        @include toFlex;
         position: absolute;
         top: 15%;
         width: 60%;
@@ -275,7 +260,7 @@ iframe {
           opacity: 0;
           animation: appear-dots 2s ease-out 2s forwards;
         }
-        @for $i from 1 through 12 { 
+        @for $i from 1 through 12 {
           img:nth-child(#{$i}) {
             animation-delay: #{1s + (12 - $i) * 0.2s};
           }
@@ -401,17 +386,14 @@ iframe {
           animation: appear-panda 0.4s ease-in 0.2s forwards,
             flesh-sparkle 2s alternate 1.4s infinite;
           @keyframes flesh-sparkle {
-            0% {
+            0%,
+            100% {
               transform: translate(0);
               opacity: 0.7;
             }
             50% {
               transform: translate(-5%);
               opacity: 1;
-            }
-            100% {
-              transform: translate(0);
-              opacity: 0.7;
             }
           }
         }
@@ -448,20 +430,14 @@ iframe {
             0% {
               opacity: 0;
             }
-            20% {
-              opacity: 0.3;
-            }
-            40% {
-              opacity: 0.6;
-            }
-            60% {
-              opacity: 0.3;
-            }
-            80% {
-              opacity: 0.6;
-            }
+            20%,
+            60%,
             100% {
               opacity: 0.3;
+            }
+            40%,
+            80% {
+              opacity: 0.6;
             }
           }
         }
@@ -484,7 +460,7 @@ iframe {
           right: -3%;
           z-index: 5;
           opacity: 0;
-          animation: appear-dots 0.5s  ease-out 0.8s forwards;
+          animation: appear-dots 0.5s ease-out 0.8s forwards;
         }
         .carrot {
           width: 33%;
@@ -516,7 +492,7 @@ iframe {
           z-index: 5;
           transform: rotate(-7deg);
           opacity: 0;
-          animation: appear-dots 0.5s  ease-out 1s forwards;
+          animation: appear-dots 0.5s ease-out 1s forwards;
         }
         .grapes {
           width: 40%;
@@ -536,7 +512,7 @@ iframe {
           z-index: 5;
           transform: rotate(-10deg);
           opacity: 0;
-          animation: appear-dots 0.5s  ease-out 0.8s forwards;
+          animation: appear-dots 0.5s ease-out 0.8s forwards;
         }
         .orange {
           width: 28%;
@@ -555,7 +531,7 @@ iframe {
           right: 26%;
           z-index: 5;
           opacity: 0;
-          animation: appear-dots 0.5s  ease-out 1.2s forwards;
+          animation: appear-dots 0.5s ease-out 1.2s forwards;
         }
         @keyframes fell-fruit {
           0% {
@@ -607,19 +583,17 @@ iframe {
             jump-cta 5s ease-in-out 2.2s infinite;
         }
         @keyframes jump-cta {
-          0% {
+          0%,
+          20% {
             transform: translate(-50%, 0);
           }
           10% {
             transform: translate(-50%, -10%);
           }
-          20% {
-            transform: translate(-50%, 0);
-          }
         }
         .cta-shadow {
           width: 60%;
-@include toCenter;
+          @include toCenter;
           bottom: 37%;
           z-index: 5;
           opacity: 0;
@@ -662,7 +636,7 @@ iframe {
         @include toCenter;
       }
     }
-    .logo-click{
+    .logo-click {
       width: 100%;
       height: 10%;
       position: absolute;
@@ -670,15 +644,15 @@ iframe {
       left: 0;
       z-index: 50;
     }
-    .bg-click{
+    .bg-click {
       width: 100%;
-      height:75%;
+      height: 75%;
       position: absolute;
       top: 10%;
       left: 0;
       z-index: 50;
     }
-    .cta-click{
+    .cta-click {
       width: 100%;
       height: 15%;
       position: absolute;
