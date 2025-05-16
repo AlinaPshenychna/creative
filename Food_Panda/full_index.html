@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Food Panda</title>
+  </head>
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+iframe {
+  display: none;
+}
+
+.LM_container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 10000;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  background: #fff;
+}
+.LM_container .LM_loading_page {
+  position: absolute;
+  z-index: 100000;
+  width: 100%;
+  height: 100%;
+  background: #000000;
+}
+.LM_container .LM_loading_page img {
+  width: 100vw;
+  height: 100vh;
+}
+.LM_container .LM_loading_page .preloader {
+  display: inline-block;
+  font-size: 0;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateZ(0) translateX(-50%) translateY(-50%);
+  -webkit-transform: translateZ(0) translateX(-50%) translateY(-50%);
+}
+.LM_container .LM_loading_page .preloader span {
+  vertical-align: middle;
+  border-radius: 100%;
+  background: #f8f8f8;
+  border: 1px solid #707070;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin: 3px 4px;
+  animation: preloader 0.8s linear infinite alternate;
+}
+.LM_container .LM_loading_page .preloader span:nth-child(1) {
+  animation-delay: -0.8s;
+}
+.LM_container .LM_loading_page .preloader span:nth-child(2) {
+  animation-delay: -0.5s;
+}
+.LM_container .LM_loading_page .preloader span:nth-child(3) {
+  animation-delay: -0.2s;
+}
+.LM_container .LM_landscape {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #ffffff url(https://i.loopme.me/html/general/not_available.png) no-repeat;
+  background-position: center center;
+  background-size: 70px;
+  z-index: 100000000;
+}
+.LM_container .LM_content {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(248, 248, 248);
+}
+
+.video-container {
+  width: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+  display: flex;
+  aspect-ratio: 16/9;
+}
+.video-container .screenshot {
+  width: 100%;
+}
+.video-container .video {
+  width: 100%;
+}
+.video-container .video.hidden {
+  display: none;
+}
+.video-container .sound-on {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 6%;
+  left: 2%;
+  opacity: 1;
+  border: none;
+  background-color: transparent;
+  background-size: contain;
+  background-image: url("https://i.loopme.me/html/loopme_standart_icons/unmute.png");
+}
+.video-container .sound-off {
+  background-image: url("https://i.loopme.me/html/loopme_standart_icons/mute.png");
+}
+
+.main-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  flex-shrink: 1;
+  overflow: hidden;
+}
+.main-container .panda {
+  margin-top: 10%;
+  width: 100%;
+  height: 90%;
+  position: absolute;
+  transform: scale(1.4) translateY(5%);
+  animation: scale-panda 2s ease-out 0.3s forwards;
+}
+@keyframes scale-panda {
+  0% {
+    transform: scale(1.4) translateY(5%);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+  }
+}
+@media (min-aspect-ratio: 510/1000) and (max-aspect-ratio: 900/1000) {
+  .main-container .panda {
+    height: 100%;
+  }
+}
+@media (min-aspect-ratio: 670/1000) and (max-aspect-ratio: 900/1000) {
+  .main-container .panda {
+    margin-top: 5%;
+  }
+}
+.main-container .logo {
+  width: 47%;
+  position: absolute;
+  right: 3%;
+  top: 5%;
+  z-index: 10;
+  opacity: 0;
+  animation: appear-with-opacity 1.8s ease-out 2.3s forwards;
+}
+@keyframes appear-with-opacity {
+  100% {
+    opacity: 1;
+  }
+}
+.main-container .bag {
+  width: 20%;
+  position: absolute;
+  right: 16%;
+  top: 31%;
+  transform: translateY(-300%);
+  animation: move-down-bag 0.5s 2s forwards linear, move-bag 2s 2.5s alternate infinite linear;
+}
+@keyframes move-down-bag {
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes move-bag {
+  0% {
+    transform: translateY(0) rotate(3deg);
+  }
+  100% {
+    transform: translateY(0) rotate(-3deg);
+  }
+}
+@media (min-aspect-ratio: 510/1000) and (max-aspect-ratio: 900/1000) {
+  .main-container .bag {
+    top: 32%;
+  }
+}
+@media (min-aspect-ratio: 580/1000) and (max-aspect-ratio: 900/1000) {
+  .main-container .bag {
+    top: 35%;
+  }
+}
+@media (min-aspect-ratio: 670/1000) and (max-aspect-ratio: 900/1000) {
+  .main-container .bag {
+    top: 33%;
+  }
+}
+.main-container .describe {
+  width: 40%;
+  position: absolute;
+  right: 3%;
+  top: 60%;
+  opacity: 0;
+  animation: appear-with-opacity 2s ease-out 2.3s forwards, describe-scale 1.7s ease-out 2.3s forwards;
+}
+@keyframes describe-scale {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@media (min-aspect-ratio: 550/1000) and (max-aspect-ratio: 900/1000) {
+  .main-container .describe {
+    width: 35%;
+  }
+}
+@media (min-aspect-ratio: 580/1000) and (max-aspect-ratio: 900/1000) {
+  .main-container .describe {
+    top: 65%;
+  }
+}
+.main-container .cta {
+  width: 40%;
+  position: absolute;
+  right: 3%;
+  top: 85%;
+  opacity: 0;
+  animation: appear-with-opacity 0.8s ease-out 3.2s forwards, cta-scale 3s linear infinite;
+}
+@keyframes cta-scale {
+  0%, 35%, 65%, 100% {
+    transform: scale(1);
+  }
+  25%, 55% {
+    transform: scale(1.1);
+  }
+}
+.main-container .leave-bottom {
+  width: 60%;
+  position: absolute;
+  bottom: -3%;
+  left: 0;
+}
+@media (min-aspect-ratio: 510/1000) and (max-aspect-ratio: 900/1000) {
+  .main-container .leave-bottom {
+    width: 55%;
+  }
+}
+@media (min-aspect-ratio: 580/1000) and (max-aspect-ratio: 900/1000) {
+  .main-container .leave-bottom {
+    width: 40%;
+  }
+}
+.main-container .right-leave {
+  width: 110%;
+  position: absolute;
+  bottom: -20%;
+  right: -16%;
+  animation: move-right-leave 2s ease-in forwards;
+}
+@keyframes move-right-leave {
+  100% {
+    transform: translateX(140%) rotate(30deg);
+  }
+}
+.main-container .left-leave {
+  width: 90%;
+  position: absolute;
+  transform: rotate(-10deg);
+  left: -5%;
+  animation: move-left-leave 1.5s ease-in forwards;
+}
+@keyframes move-left-leave {
+  100% {
+    transform: translateX(-140%) rotate(-30deg);
+  }
+}
+.main-container .bottom-leave {
+  width: 110%;
+  position: absolute;
+  bottom: -19%;
+  z-index: 12;
+  animation: move-bottom-leave 2s ease-in forwards;
+}
+@keyframes move-bottom-leave {
+  100% {
+    transform: translateY(140%) rotate(30deg);
+  }
+}
+
+#ad-choice-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 77px;
+  height: 15px;
+  z-index: 1000;
+  border-radius: 0 0 8px 0;
+  overflow: hidden;
+}
+#ad-choice-container #ad-choice-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 19px;
+  height: 100%;
+  background: #ffe url(https://i.loopme.me/html/adChoice/img/icon.png) center/cover no-repeat;
+  border-radius: 0 0 8px 0;
+}
+#ad-choice-container #ad-choice-click {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 77px;
+  height: 100%;
+  transform: translate(-77px, 0);
+  transition: 0.2s;
+  background: #e3c6c0 url(https://i.loopme.me/html/adChoice/img/click.png) no-repeat left center;
+  background-size: contain;
+}
+#ad-choice-container #ad-choice-click #ad-choice-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  text-decoration: none;
+}
+#ad-choice-container .LM_landscape {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #fff url(https://i.loopme.me/html/general/not_available.png) no-repeat;
+  background-position: center center;
+  background-size: 70px;
+  z-index: 100000000;
+}
+  </style>
+  <body>
+    <div class="LM_container">
+      <!-- <div class="LM_loading_page">
+        <img
+          src="https://i.loopme.me/html/APAC-APEX-WOG_NEA_Recycle_2024-SG-Q3_24/assets/general/loading_page.png"
+          alt="loading page"
+        />
+        <div class="preloader">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <div class="LM_landscape"></div> -->
+      <div class="LM_content">
+        <div class="video-container">
+          <video playsinline="false" class="video" autoplay muted="true">
+            <source
+              type="video/mp4"
+              src="https://i.loopme.me/html/FoodPanda_PauPau_q1_2023/assets/project_images/video.mp4"
+            />
+            <source
+              type="video/mp4"
+              src="https://i.loopme.me/html/FoodPanda_PauPau_q1_2023/assets/project_images/video.webm"
+            />
+          </video>
+          <button class="sound-on sound-off"></button>
+          <img
+            class="screenshot hidden"
+            src="https://i.loopme.me/html/FoodPanda_PauPau_q1_2023/assets/project_images/poster.png"
+            alt="screenshot"
+          />
+        </div>
+        <div class="main-container">
+          <img
+            class="logo"
+            src="https://i.loopme.me/html/FoodPanda_PauPau_q1_2023/assets/project_images/logo.png"
+            alt="logo"
+          />
+          <img
+            class="panda"
+            src="https://i.loopme.me/html/FoodPanda_PauPau_q1_2023/assets/project_images/pandas.png"
+            alt="panda"
+          />
+          <img
+            class="bag"
+            src="https://i.loopme.me/html/FoodPanda_PauPau_q1_2023/assets/project_images/bag.png"
+            alt="bag"
+          />
+          <img
+            class="describe"
+            src="https://i.loopme.me/html/FoodPanda_PauPau_q1_2023/assets/project_images/describe.png"
+            alt="describe"
+          />
+          <img
+            class="cta"
+            src="https://i.loopme.me/html/FoodPanda_PauPau_q1_2023/assets/project_images/cta.png"
+            alt="cta"
+          />
+          <img
+            class="leave-bottom"
+            src="https://i.loopme.me/html/FoodPanda_PauPau_q1_2023/assets/project_images/leaves_bg.png"
+            alt="leave-bottom"
+          />
+          <img
+            class="right-leave"
+            src="https://i.loopme.me/html/FoodPanda_PauPau_q1_2023/assets/project_images/leaves_1.png"
+            alt="leave-right"
+          />
+          <img class="left-leave" src="https://i.loopme.me/html/FoodPanda_PauPau_q1_2023/assets/project_images/leaves_3.png" alt="" />
+          <img class="bottom-leave" src="https://i.loopme.me/html/FoodPanda_PauPau_q1_2023/assets/project_images/leaves_2.png" alt="" />
+        </div>
+        <div class="click-areas">
+          <div class="logo-click-area"></div>
+          <div class="bg-click-area"></div>
+          <div class="cta-click-area"></div>
+        </div>
+      </div>
+      <div id="ad-choice-container">
+        <div id="ad-choice-icon"></div>
+        <div id="ad-choice-click">
+          <a
+            id="ad-choice-link"
+            href="https://info.evidon.com/more_info/78051"
+            target="_blank"
+          ></a>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+  const lmContent = document.querySelector(".LM_content");
+  lmContent.classList.add("animation");
+
+  const video = document.querySelector(".video");
+  const screenshot = document.querySelector(".screenshot");
+  const btn = document.querySelector(".sound-on");
+
+  video.addEventListener("ended", () => {
+    video.classList.add("hidden");
+    screenshot.classList.remove("hidden");
+  });
+
+  screenshot.addEventListener("click", () => {
+    screenshot.classList.add("hidden");
+    video.classList.remove("hidden");
+    video.play();
+  });
+  btn.addEventListener("click", () => {
+    video.muted = !video.muted;
+    btn.classList.toggle("sound-off");
+  });
+});
+
+    </script>
+  </body>
+</html>
