@@ -1,0 +1,329 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+iframe {
+  display: none;
+}
+.LM_container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 10000;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  overflow: hidden;
+  .LM_loading_page {
+    position: absolute;
+    z-index: 100000;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    img {
+      width: 100vw;
+      height: 100vh;
+    }
+    .preloader {
+      display: inline-block;
+      font-size: 0;
+      padding: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateZ(0) translateX(-50%) translateY(-50%);
+      span {
+        vertical-align: middle;
+        border-radius: 100%;
+        background: #f8f8f8;
+        border: 1px solid #707070;
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        margin: 3px 4px;
+        animation: preloader 0.8s linear infinite alternate;
+        &:nth-child(1) {
+          animation-delay: -0.8s;
+        }
+        &:nth-child(2) {
+          animation-delay: -0.5s;
+        }
+        &:nth-child(3) {
+          animation-delay: -0.2s;
+        }
+      }
+    }
+  }
+  .LM_landscape {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: #ffffff url(https://i.loopme.me/html/general/not_available.png)
+      no-repeat;
+    background-position: center center;
+    background-size: 70px;
+    z-index: 100000000;
+  }
+  #ad-choice-container {
+    position: absolute;
+    width: 77px;
+    height: 15px;
+    z-index: 1000;
+    border-radius: 0 0 8px 0;
+    overflow: hidden;
+
+    #ad-choice-icon {
+      position: absolute;
+      width: 19px;
+      height: 100%;
+      background: #ffe url(https://i.loopme.me/html/adChoice/img/icon.png)
+        center / cover no-repeat;
+      border-radius: 0 0 8px 0;
+    }
+    #ad-choice-click {
+      position: absolute;
+      width: 77px;
+      height: 100%;
+      transform: translate(-77px, 0);
+      transition: 0.2s;
+      background: #e3c6c0 url(https://i.loopme.me/html/adChoice/img/click.png)
+        no-repeat left center;
+      background-size: contain;
+      #ad-choice-link {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: block;
+        text-decoration: none;
+      }
+    }
+  }
+  .LM_content {
+    width: 100vw;
+    height: 100vh;
+    background-image: url(https://i.loopme.me/html/VMLY_R_NY_Leidos_US_August2024/assets/Images/LoadingPage.jpg);
+    background-size: cover;
+    background-position: bottom;
+    animation: scale-bg 3s ease-out forwards;
+    @keyframes scale-bg{
+   0% {
+    background-size: 100% auto;
+  }
+  100% {
+    background-size: 110% auto;
+  }
+    }
+    .main-container {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .top-container {
+        width: 100%;
+        height: 40%;
+        opacity: 1;
+        position: relative;
+        .logo {
+          width: 40%;
+          position: absolute;
+          right: 2%;
+          top: 2%;
+          animation: appear-items 1.5s ease-out forwards;
+        }
+        .first-text {
+          width: 100%;
+          position: absolute;
+          left: 5%;
+          top: 20%;
+          animation: disappear-items 0.8s ease-in 6.5s forwards;
+          .top-text {
+            width: 70%;
+            padding-bottom: 3%;
+            img {
+              width: 67%;
+              padding-right: 3%;
+              opacity: 0;
+              transform: translateX(20%);
+              animation: appear-items 1s ease-out forwards,
+                move-right-to-left 1s ease-out forwards;
+            }
+            @for $i from 1 through 5 {
+              img:nth-child(#{$i}) {
+                animation-delay: #{($i - 1) * 0.6s}, #{($i - 1) * 0.6s};
+              }
+            }
+            .short-word-a {
+              width: 15.5%;
+              transform: translateX(100%);
+            }
+            .short-word-is {
+              width: 17.5%;
+              transform: translateX(100%);
+            }
+            .solution-w {
+              width: 82%;
+              margin-right: 30%;
+            }
+          }
+          .bottom-text {
+            width: 80%;
+            img {
+              width: 70%;
+              padding-right: 3%;
+              opacity: 0;
+              transform: translateX(20%);
+              animation: appear-items 1s ease-out 2.5s forwards,
+                move-right-to-left 1s ease-out 2.5s forwards;
+            }
+            @for $i from 1 through 5 {
+              img:nth-child(#{$i}) {
+                animation-delay: #{3s+ ($i - 1) * 0.6s}, #{3s+ ($i - 1) * 0.6s};
+              }
+            }
+            .changing {
+              margin-right: 20%;
+            }
+            .short-word-the {
+              width: 26%;
+            }
+            .short-word-is {
+              width: 14.5%;
+            }
+          }
+        }
+        .second-top-text {
+          width: 82%;
+          margin-top: 20%;
+          margin-left: 5%;
+          @for $i from 1 through 11 {
+            img:nth-of-type(#{$i}) {
+              animation-delay: #{7.5+ ($i - 1) * 0.4s};
+            }
+          }
+          img {
+            transform: translateX(20%);
+            opacity: 0;
+            margin-right: 2%;
+            margin-bottom: 2%;
+            animation: appear-items 0.8s ease-out forwards,
+              move-right-to-left 0.8s ease-out forwards;
+          }
+          .word-abs {
+            animation: appear-items 0.8s ease-out forwards,
+              move-right-to-left-second 0.8s ease-out forwards;
+
+            @keyframes move-right-to-left-second {
+              0% {
+                transform: translate(20%, 15%);
+              }
+              100% {
+                transform: translate(0, 15%);
+              }
+            }
+          }
+          .addr {
+            width: 45%;
+          }
+          .small-the {
+            width: 13%;
+          }
+          .worlds {
+            width: 33%;
+          }
+          .most {
+            width: 20%;
+          }
+          .vexing {
+            width: 27%;
+          }
+          .chall {
+            width: 44%;
+          }
+          .in {
+            width: 7%;
+          }
+          .national {
+            width: 34%;
+          }
+          .security {
+            width: 33%;
+            margin-right: 12%;
+          }
+          .ampers {
+            width: 6%;
+            margin-top: 1%;
+          }
+          .health {
+            width: 30%;
+            margin-top: 1%;
+          }
+        }
+      }
+      .bottom-container {
+        display: flex;
+        justify-content: space-between;
+        opacity: 0;
+        animation: appear-items 1.5s ease-out 6.5s forwards;
+        .mss {
+          width: 25%;
+          margin: 7%;
+        }
+        .cta {
+          width: 70%;
+          height: 90%;
+          transform: translate(-10px, 5%);
+          animation: cta-move 2s ease-in-out 7s infinite;
+        }
+        @keyframes cta-move {
+          0% {
+            transform: translate(-10px, 5%);
+          }
+          10% {
+            transform: translate(1px, 5%);
+          }
+          15% {
+            transform: translate(-10px, 5%);
+          }
+          25% {
+            transform: translate(1px, 5%);
+          }
+          35% {
+            transform: translate(-10px, 5%);
+          }
+          100% {
+            transform: translate(-10px, 5%);
+          }
+        }
+      }
+    }
+  }
+  @keyframes appear-items {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes disappear-items {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes move-right-to-left {
+    0% {
+      transform: translateX(20%);
+    }
+    100% {
+      transform: translate(0);
+    }
+  }
+}
