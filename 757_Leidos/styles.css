@@ -1,0 +1,372 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+iframe {
+  display: none;
+}
+
+.LM_container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 10000;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  overflow: hidden;
+}
+.LM_container .LM_loading_page {
+  position: absolute;
+  z-index: 100000;
+  width: 100%;
+  height: 100%;
+  background: #000000;
+}
+.LM_container .LM_loading_page img {
+  width: 100vw;
+  height: 100vh;
+}
+.LM_container .LM_loading_page .preloader {
+  display: inline-block;
+  font-size: 0;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateZ(0) translateX(-50%) translateY(-50%);
+}
+.LM_container .LM_loading_page .preloader span {
+  vertical-align: middle;
+  border-radius: 100%;
+  background: #f8f8f8;
+  border: 1px solid #707070;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin: 3px 4px;
+  animation: preloader 0.8s linear infinite alternate;
+}
+.LM_container .LM_loading_page .preloader span:nth-child(1) {
+  animation-delay: -0.8s;
+}
+.LM_container .LM_loading_page .preloader span:nth-child(2) {
+  animation-delay: -0.5s;
+}
+.LM_container .LM_loading_page .preloader span:nth-child(3) {
+  animation-delay: -0.2s;
+}
+.LM_container .LM_landscape {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #ffffff url(https://i.loopme.me/html/general/not_available.png) no-repeat;
+  background-position: center center;
+  background-size: 70px;
+  z-index: 100000000;
+}
+.LM_container #ad-choice-container {
+  position: absolute;
+  width: 77px;
+  height: 15px;
+  z-index: 1000;
+  border-radius: 0 0 8px 0;
+  overflow: hidden;
+}
+.LM_container #ad-choice-container #ad-choice-icon {
+  position: absolute;
+  width: 19px;
+  height: 100%;
+  background: #ffe url(https://i.loopme.me/html/adChoice/img/icon.png) center/cover no-repeat;
+  border-radius: 0 0 8px 0;
+}
+.LM_container #ad-choice-container #ad-choice-click {
+  position: absolute;
+  width: 77px;
+  height: 100%;
+  transform: translate(-77px, 0);
+  transition: 0.2s;
+  background: #e3c6c0 url(https://i.loopme.me/html/adChoice/img/click.png) no-repeat left center;
+  background-size: contain;
+}
+.LM_container #ad-choice-container #ad-choice-click #ad-choice-link {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: block;
+  text-decoration: none;
+}
+.LM_container .LM_content {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(https://i.loopme.me/html/VMLY_R_NY_Leidos_US_August2024/assets/Images/LoadingPage.jpg);
+  background-size: cover;
+  background-position: bottom;
+  animation: scale-bg 3s ease-out forwards;
+}
+@keyframes scale-bg {
+  0% {
+    background-size: 100% auto;
+  }
+  100% {
+    background-size: 110% auto;
+  }
+}
+.LM_container .LM_content .main-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.LM_container .LM_content .main-container .top-container {
+  width: 100%;
+  height: 40%;
+  opacity: 1;
+  position: relative;
+}
+.LM_container .LM_content .main-container .top-container .logo {
+  width: 40%;
+  position: absolute;
+  right: 2%;
+  top: 2%;
+  animation: appear-items 1.5s ease-out forwards;
+}
+.LM_container .LM_content .main-container .top-container .first-text {
+  width: 100%;
+  position: absolute;
+  left: 5%;
+  top: 20%;
+  animation: disappear-items 0.8s ease-in 6.5s forwards;
+}
+.LM_container .LM_content .main-container .top-container .first-text .top-text {
+  width: 70%;
+  padding-bottom: 3%;
+}
+.LM_container .LM_content .main-container .top-container .first-text .top-text img {
+  width: 67%;
+  padding-right: 3%;
+  opacity: 0;
+  transform: translateX(20%);
+  animation: appear-items 1s ease-out forwards, move-right-to-left 1s ease-out forwards;
+}
+.LM_container .LM_content .main-container .top-container .first-text .top-text img:nth-child(1) {
+  animation-delay: 0s, 0s;
+}
+.LM_container .LM_content .main-container .top-container .first-text .top-text img:nth-child(2) {
+  animation-delay: 0.6s, 0.6s;
+}
+.LM_container .LM_content .main-container .top-container .first-text .top-text img:nth-child(3) {
+  animation-delay: 1.2s, 1.2s;
+}
+.LM_container .LM_content .main-container .top-container .first-text .top-text img:nth-child(4) {
+  animation-delay: 1.8s, 1.8s;
+}
+.LM_container .LM_content .main-container .top-container .first-text .top-text img:nth-child(5) {
+  animation-delay: 2.4s, 2.4s;
+}
+.LM_container .LM_content .main-container .top-container .first-text .top-text .short-word-a {
+  width: 15.5%;
+  transform: translateX(100%);
+}
+.LM_container .LM_content .main-container .top-container .first-text .top-text .short-word-is {
+  width: 17.5%;
+  transform: translateX(100%);
+}
+.LM_container .LM_content .main-container .top-container .first-text .top-text .solution-w {
+  width: 82%;
+  margin-right: 30%;
+}
+.LM_container .LM_content .main-container .top-container .first-text .bottom-text {
+  width: 80%;
+}
+.LM_container .LM_content .main-container .top-container .first-text .bottom-text img {
+  width: 70%;
+  padding-right: 3%;
+  opacity: 0;
+  transform: translateX(20%);
+  animation: appear-items 1s ease-out 2.5s forwards, move-right-to-left 1s ease-out 2.5s forwards;
+}
+.LM_container .LM_content .main-container .top-container .first-text .bottom-text img:nth-child(1) {
+  animation-delay: 3s, 3s;
+}
+.LM_container .LM_content .main-container .top-container .first-text .bottom-text img:nth-child(2) {
+  animation-delay: 3.6s, 3.6s;
+}
+.LM_container .LM_content .main-container .top-container .first-text .bottom-text img:nth-child(3) {
+  animation-delay: 4.2s, 4.2s;
+}
+.LM_container .LM_content .main-container .top-container .first-text .bottom-text img:nth-child(4) {
+  animation-delay: 4.8s, 4.8s;
+}
+.LM_container .LM_content .main-container .top-container .first-text .bottom-text img:nth-child(5) {
+  animation-delay: 5.4s, 5.4s;
+}
+.LM_container .LM_content .main-container .top-container .first-text .bottom-text .changing {
+  margin-right: 20%;
+}
+.LM_container .LM_content .main-container .top-container .first-text .bottom-text .short-word-the {
+  width: 26%;
+}
+.LM_container .LM_content .main-container .top-container .first-text .bottom-text .short-word-is {
+  width: 14.5%;
+}
+.LM_container .LM_content .main-container .top-container .second-top-text {
+  width: 82%;
+  margin-top: 20%;
+  margin-left: 5%;
+}
+.LM_container .LM_content .main-container .top-container .second-top-text img:nth-of-type(1) {
+  animation-delay: 7.5s;
+}
+.LM_container .LM_content .main-container .top-container .second-top-text img:nth-of-type(2) {
+  animation-delay: 7.9s;
+}
+.LM_container .LM_content .main-container .top-container .second-top-text img:nth-of-type(3) {
+  animation-delay: 8.3s;
+}
+.LM_container .LM_content .main-container .top-container .second-top-text img:nth-of-type(4) {
+  animation-delay: 8.7s;
+}
+.LM_container .LM_content .main-container .top-container .second-top-text img:nth-of-type(5) {
+  animation-delay: 9.1s;
+}
+.LM_container .LM_content .main-container .top-container .second-top-text img:nth-of-type(6) {
+  animation-delay: 9.5s;
+}
+.LM_container .LM_content .main-container .top-container .second-top-text img:nth-of-type(7) {
+  animation-delay: 9.9s;
+}
+.LM_container .LM_content .main-container .top-container .second-top-text img:nth-of-type(8) {
+  animation-delay: 10.3s;
+}
+.LM_container .LM_content .main-container .top-container .second-top-text img:nth-of-type(9) {
+  animation-delay: 10.7s;
+}
+.LM_container .LM_content .main-container .top-container .second-top-text img:nth-of-type(10) {
+  animation-delay: 11.1s;
+}
+.LM_container .LM_content .main-container .top-container .second-top-text img:nth-of-type(11) {
+  animation-delay: 11.5s;
+}
+.LM_container .LM_content .main-container .top-container .second-top-text img {
+  transform: translateX(20%);
+  opacity: 0;
+  margin-right: 2%;
+  margin-bottom: 2%;
+  animation: appear-items 0.8s ease-out forwards, move-right-to-left 0.8s ease-out forwards;
+}
+.LM_container .LM_content .main-container .top-container .second-top-text .word-abs {
+  animation: appear-items 0.8s ease-out forwards, move-right-to-left-second 0.8s ease-out forwards;
+}
+@keyframes move-right-to-left-second {
+  0% {
+    transform: translate(20%, 15%);
+  }
+  100% {
+    transform: translate(0, 15%);
+  }
+}
+.LM_container .LM_content .main-container .top-container .second-top-text .addr {
+  width: 45%;
+}
+.LM_container .LM_content .main-container .top-container .second-top-text .small-the {
+  width: 13%;
+}
+.LM_container .LM_content .main-container .top-container .second-top-text .worlds {
+  width: 33%;
+}
+.LM_container .LM_content .main-container .top-container .second-top-text .most {
+  width: 20%;
+}
+.LM_container .LM_content .main-container .top-container .second-top-text .vexing {
+  width: 27%;
+}
+.LM_container .LM_content .main-container .top-container .second-top-text .chall {
+  width: 44%;
+}
+.LM_container .LM_content .main-container .top-container .second-top-text .in {
+  width: 7%;
+}
+.LM_container .LM_content .main-container .top-container .second-top-text .national {
+  width: 34%;
+}
+.LM_container .LM_content .main-container .top-container .second-top-text .security {
+  width: 33%;
+  margin-right: 12%;
+}
+.LM_container .LM_content .main-container .top-container .second-top-text .ampers {
+  width: 6%;
+  margin-top: 1%;
+}
+.LM_container .LM_content .main-container .top-container .second-top-text .health {
+  width: 30%;
+  margin-top: 1%;
+}
+.LM_container .LM_content .main-container .bottom-container {
+  display: flex;
+  justify-content: space-between;
+  opacity: 0;
+  animation: appear-items 1.5s ease-out 6.5s forwards;
+}
+.LM_container .LM_content .main-container .bottom-container .mss {
+  width: 25%;
+  margin: 7%;
+}
+.LM_container .LM_content .main-container .bottom-container .cta {
+  width: 70%;
+  height: 90%;
+  transform: translate(-10px, 5%);
+  animation: cta-move 2s ease-in-out 7s infinite;
+}
+@keyframes cta-move {
+  0% {
+    transform: translate(-10px, 5%);
+  }
+  10% {
+    transform: translate(1px, 5%);
+  }
+  15% {
+    transform: translate(-10px, 5%);
+  }
+  25% {
+    transform: translate(1px, 5%);
+  }
+  35% {
+    transform: translate(-10px, 5%);
+  }
+  100% {
+    transform: translate(-10px, 5%);
+  }
+}
+@keyframes appear-items {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes disappear-items {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes move-right-to-left {
+  0% {
+    transform: translateX(20%);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */
